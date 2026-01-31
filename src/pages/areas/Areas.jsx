@@ -1,256 +1,198 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './Areas.css';
 import heroBackground from '../../media/hero-background.png';
 import contactImage from '../../media/contact.jpg';
 import { areas } from '../../data/areas';
-import { Rocket, Map, Zap, Phone, Search, Filter } from 'lucide-react';
+import { MapPin, Search, Filter, Phone, ArrowRight, ShieldCheck, Zap, Navigation } from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';
 
 const Areas = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const initialFilter = queryParams.get('filter');
 
-    const [selectedArea, setSelectedArea] = useState(initialFilter || 'All');
+    const [selectedGov, setSelectedGov] = useState(initialFilter || 'All');
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Scroll to results if filter is present
-    useEffect(() => {
-        if (initialFilter) {
-            const resultsSection = document.querySelector('.search-filter-section');
-            if (resultsSection) {
-                resultsSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [initialFilter]);
     const getTotalSubareas = () => {
-        return areas.reduce((total, area) => total + area.areas.length, 0);
+        return areas.reduce((total, gov) => total + gov.areas.length, 0);
     };
 
-    // Filter Logic
-    const filteredAreas = areas.map(governorate => {
-        // 1. Filter by Governorate (Dropdown)
-        if (selectedArea !== 'All' && governorate.name !== selectedArea) {
-            return null;
-        }
+    const filteredAreas = areas.map(gov => {
+        if (selectedGov !== 'All' && gov.name !== selectedGov) return null;
 
-        // 2. Filter by Search Query
-        const matchingSubareas = governorate.areas.filter(subarea =>
+        const matchingSubareas = gov.areas.filter(subarea =>
             subarea.includes(searchQuery) ||
             subarea.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
-        if (matchingSubareas.length === 0) {
-            return null;
-        }
+        if (matchingSubareas.length === 0) return null;
 
-        return {
-            ...governorate,
-            areas: matchingSubareas
-        };
+        return { ...gov, areas: matchingSubareas };
     }).filter(Boolean);
 
+    const whyData = [
+        { icon: <Zap size={40} />, title: 'تغطية فورية', desc: 'توزيع استراتيجي للونشات يضمن الوصول السريع لكافة المناطق' },
+        { icon: <Navigation size={40} />, title: 'معرفة تامة', desc: 'فريقنا ملم بكافة الطرق والمحاور الرئيسية والفرعية' },
+        { icon: <ShieldCheck size={40} />, title: 'أمان كامل', desc: 'نلتزم بأعلى معايير السلامة في نقل سيارتك مهما كان موقعك' }
+    ];
+
     return (
-        <div className="areas-page">
+        <div className="areas-v2">
+            <Helmet>
+                <title>تغطيتنا | ونش إنقاذ الجمهورية - نصل إليك في كل مكان</title>
+                <meta name="description" content="تغطية شاملة لجميع محافظات مصر: القاهرة، الجيزة، أكتوبر، الإسكندرية، وكافة الطرق السريعة. أسرع ونش إنقاذ نصلك خلال دقائق." />
+            </Helmet>
+
             {/* Hero Section */}
-            <section className="areas-hero" style={{ backgroundImage: `url(${heroBackground})` }}>
-                <div className="areas-hero-overlay"></div>
-                <div className="areas-hero-content">
-                    <h1 className="areas-hero-title">مناطق <span className="highlight">خدمتنا</span></h1>
-                    <p className="areas-hero-subtitle">نخدمك في جميع أنحاء مصر على مدار الساعة</p>
-                    <div className="breadcrumb">
-                        <a href="/">الرئيسية</a>
-                        <span className="separator">/</span>
-                        <span>المناطق</span>
+            <section className="areas-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>
+                <div className="hero-overlay-v2"></div>
+                <div className="container-v2">
+                    <div className="hero-content-v2">
+                        <div className="breadcrumb-v2">
+                            <a href="/">الرئيسية</a>
+                            <span>/</span>
+                            <span>مناطق التغطية</span>
+                        </div>
+                        <h1 className="hero-title-v2">نصل <span className="highlight">إليك</span> أينما كنت</h1>
+                        <p className="hero-subtitle-v2">تغطية شاملة واحترافية لكافة مناطق ومحافظات الجمهورية على مدار 24 ساعة</p>
                     </div>
                 </div>
             </section>
 
-            {/* Overview Section */}
-            <section className="areas-overview">
-                <div className="overview-container">
-                    <div className="overview-header">
-                        <h3 className="section-subtitle">تغطية شاملة</h3>
-                        <h2 className="section-title">
-                            نخدم <span className="highlight">جميع المناطق</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
+            {/* Coverage Overview */}
+            <section className="coverage-overview-v2">
+                <div className="container-v2">
+                    <div className="section-header centered">
+                        <div className="header-meta">
+                            <span className="dot"></span>
+                            <h4 className="sub-title">تغطية وطنية</h4>
                         </div>
-                        <p className="overview-description">
-                            نفخر بتقديم خدماتنا في {getTotalSubareas()} منطقة عبر {areas.length} محافظات رئيسية.
-                            أينما كنت في مصر، فريقنا جاهز للوصول إليك في أسرع وقت ممكن بأعلى مستوى من
-                            الاحترافية والأمان.
+                        <h2 className="main-title">شبكة إنقاذ <span className="highlight">على مستوى الجمهورية</span></h2>
+                        <p className="section-description">
+                            نمتلك أكبر أسطول ونشات موزعة جغرافياً لضمان الوصول لأي منطقة في أسرع وقت ممكن
                         </p>
                     </div>
 
-                    {/* Stats */}
-                    <div className="coverage-stats">
-                        <div className="stat-box">
-                            <div className="area-stat-number">{areas.length}</div>
-                            <div className="area-stat-label">محافظات رئيسية</div>
+                    <div className="coverage-stats-v2">
+                        <div className="c-stat-card-v2">
+                            <span className="c-num-v2">{areas.length}</span>
+                            <p>محافظة</p>
                         </div>
-                        <div className="stat-box">
-                            <div className="area-stat-number">{getTotalSubareas()}+</div>
-                            <div className="area-stat-label">منطقة مخدومة</div>
+                        <div className="c-stat-card-v2 highlight">
+                            <span className="c-num-v2">{getTotalSubareas()}</span>
+                            <p>منطقة مخدومة</p>
                         </div>
-                        <div className="stat-box">
-                            <div className="area-stat-number">24/7</div>
-                            <div className="area-stat-label">خدمة متواصلة</div>
-                        </div>
-                        <div className="stat-box">
-                            <div className="area-stat-number">20</div>
-                            <div className="area-stat-label">دقيقة وقت وصول</div>
+                        <div className="c-stat-card-v2">
+                            <span className="c-num-v2">20</span>
+                            <p>دقيقة كحد أقصى</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Search & Filter Section */}
-            <section className="search-filter-section">
-                <div className="search-filter-container">
-                    <div className="search-filter-wrapper">
-                        {/* Search Bar */}
-                        <div className="search-box">
-                            <Search className="search-icon" size={20} />
+            {/* Search & Selector */}
+            <section className="area-controls-v2">
+                <div className="container-v2">
+                    <div className="controls-box-v2">
+                        <div className="search-wrap-v2">
+                            <Search size={22} className="s-icon-v2" />
                             <input
                                 type="text"
-                                placeholder="ابحث عن منطقتك..."
+                                placeholder="ابحث عن منطقتك (مثال: المعادي، أكتوبر...)"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="search-input"
                             />
                         </div>
-
-                        {/* Filter Dropdown */}
-                        <div className="filter-box">
-                            <Filter className="filter-icon" size={20} />
-                            <select
-                                value={selectedArea || 'All'}
-                                onChange={(e) => setSelectedArea(e.target.value)}
-                                className="filter-select"
-                            >
+                        <div className="filter-wrap-v2">
+                            <Filter size={22} className="f-icon-v2" />
+                            <select value={selectedGov} onChange={(e) => setSelectedGov(e.target.value)}>
                                 <option value="All">كل المحافظات</option>
-                                {areas.map((area, index) => (
-                                    <option key={index} value={area.name}>
-                                        {area.name}
-                                    </option>
-                                ))}
+                                {areas.map(gov => <option key={gov.name} value={gov.name}>{gov.name}</option>)}
                             </select>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Main Areas Display */}
-            {filteredAreas.length > 0 ? (
-                filteredAreas.map((mainArea, index) => (
-                    <section
-                        key={index}
-                        className="area-section"
-                        id={mainArea.name}
-                    >
-                        <div className="area-container">
-                            <div className="area-header">
-                                <a href={`/areas/${encodeURIComponent(mainArea.name)}`} className="area-header-content">
-                                    <div className="area-header-text">
-                                        <h2 className="area-title">{mainArea.name}</h2>
-                                        <p className="area-count">{mainArea.areas.length} منطقة مخدومة</p>
+            {/* Main Listing */}
+            <section className="governorates-v2">
+                <div className="container-v2">
+                    {filteredAreas.length > 0 ? (
+                        filteredAreas.map(gov => (
+                            <div key={gov.name} className="gov-block-v2">
+                                <div className="gov-header-v3">
+                                    <div className="gov-info-v3">
+                                        <MapPin size={24} className="pin-v3" />
+                                        <h2>{gov.name}</h2>
+                                        <span className="gov-count-v3">{gov.areas.length} منطقة</span>
                                     </div>
-                                </a>
-                            </div>
-
-                            <div className="subareas-grid">
-                                {mainArea.areas.map((subarea, subIndex) => (
-                                    <a
-                                        key={subIndex}
-                                        href={`/areas/${encodeURIComponent(subarea)}`}
-                                        className="subarea-card"
-                                    >
-                                        <div className="subarea-image" style={{ backgroundImage: `url(${contactImage})` }}>
-                                            <div className="subarea-overlay">
-                                                <div className="subarea-info">
-                                                    <h3 className="subarea-text">اسرع وارخص ونش انقاذ في مصر</h3>
-                                                    <p className="subarea-number">{phoneNumbers[0]}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="subarea-content">
-                                            <h3 className="subarea-name">ونش انقاذ {subarea}</h3>
-                                            <p className="subarea-info">خدمة متاحة 24/7</p>
-                                            <div className="subarea-footer">
-                                                <span className="subarea-badge">متاح الآن</span>
-                                            </div>
-                                        </div>
+                                    <a href={`/areas/${encodeURIComponent(gov.name)}`} className="gov-link-v3">
+                                        عرض التفاصيل
+                                        <ArrowRight size={18} />
                                     </a>
-                                ))}
+                                </div>
+                                <div className="subareas-grid-v2">
+                                    {gov.areas.map(subarea => (
+                                        <a href={`/areas/${encodeURIComponent(subarea)}`} key={subarea} className="subarea-btn-v2">
+                                            <span>ونش انقاذ {subarea}</span>
+                                            <ArrowRight size={14} className="arr-v2" />
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
+                        ))
+                    ) : (
+                        <div className="no-areas-v2">
+                            <Search size={60} strokeWidth={1} />
+                            <h3>عذراً، لم نجد نتائج لـ "{searchQuery}"</h3>
+                            <p>حاول البحث بكلمات أخرى أو اختر محافظة من القائمة</p>
                         </div>
-                    </section>
-                ))
-            ) : (
-                <div className="no-results">
-                    <p>لا توجد نتائج مطابقة لبحثك</p>
+                    )}
                 </div>
-            )}
+            </section>
 
-            {/* Why Choose Us for These Areas */}
-            <section className="why-areas">
-                <div className="why-areas-container">
-                    <div className="why-areas-header">
-                        <h3 className="subtitle">تغطية محلية شاملة</h3>
-                        <h2 className="section-title">
-                            لماذا نغطي هذه المناطق
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
+            {/* Why Local Support */}
+            <section className="local-support-v2">
+                <div className="container-v2">
+                    <div className="support-box-v2">
+                        <div className="support-header-v2">
+                            <div className="header-meta">
+                                <span className="dot"></span>
+                                <h4 className="sub-title">دعم محلي</h4>
+                            </div>
+                            <h2 className="main-title">لماذا التغطية <span className="highlight">المحلية؟</span></h2>
                         </div>
-                    </div>
-                    <div className="why-areas-grid">
-                        <div className="why-area-card">
-                            <div className="why-area-icon"><Rocket size={70} color='var(--accent)' /></div>
-                            <h3>استجابة سريعة</h3>
-                            <p>وجودنا في هذه المناطق يضمن وصولنا إليك خلال 20 دقيقة أو أقل</p>
-                        </div>
-                        <div className="why-area-card">
-                            <div className="why-area-icon"><Map size={70} color='var(--accent)' /></div>
-                            <h3>معرفة محلية</h3>
-                            <p>فريقنا يعرف كل شارع وزقاق في المناطق التي نخدمها</p>
-                        </div>
-                        <div className="why-area-card">
-                            <div className="why-area-icon"><Zap size={70} color='var(--accent)' /></div>
-                            <h3>توزيع استراتيجي</h3>
-                            <p>ونشاتنا موزعة بشكل استراتيجي لتغطية جميع المناطق</p>
-                        </div>
-                        <div className="why-area-card">
-                            <div className="why-area-icon"><Phone size={70} color='var(--accent)' /></div>
-                            <h3>دعم محلي</h3>
-                            <p>فريق دعم متخصص لكل منطقة يفهم احتياجاتك</p>
+                        <div className="support-grid-v2">
+                            {whyData.map((item, idx) => (
+                                <div key={idx} className="support-card-v2">
+                                    <div className="s-card-icon-v2">{item.icon}</div>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.desc}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="areas-cta">
-                <div className="cta-content">
-                    <h2 className="cta-title">هل منطقتك غير موجودة؟</h2>
-                    <p className="cta-description">
-                        نحن نتوسع باستمرار لتغطية المزيد من المناطق. اتصل بنا الآن للتأكد من توفر الخدمة في منطقتك.
-                    </p>
-                    <div className="cta-buttons">
-                        <a href={`tel:+2${phoneNumbers[0]}`} className="cta-button primary">
-                            اتصل للاستفسار
-                        </a>
-                        <a href="/contact" className="cta-button secondary">
-                            أرسل رسالة
+            {/* Final CTA */}
+            <section className="areas-footer-cta-v2">
+                <div className="container-v2">
+                    <div className="a-cta-box-v2">
+                        <div className="a-cta-info-v2">
+                            <h2>خارج نطاق التغطية؟</h2>
+                            <p>إذا كنت في منطقة غير موجودة بالقائمة، اتصل بنا وسنقوم بترتيب إنقاذك عبر شبكة شركائنا الموثوقين.</p>
+                        </div>
+                        <a href={`tel:+2${phoneNumbers[0]}`} className="btn-a-call-v2">
+                            <Phone size={24} />
+                            اطلب مساعدة فورية
                         </a>
                     </div>
                 </div>

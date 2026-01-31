@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './Services.css';
 import heroBackground from '../../media/hero-background.png';
 import tires from '../../media/tires.png';
@@ -6,312 +7,284 @@ import towedCar from '../../media/towed-car.png';
 import tools from '../../media/tools.png';
 import fuel from '../../media/fuel.png';
 import battery from '../../media/battery.png';
-import { Wrench, Car, Search, FileText } from 'lucide-react';
+import { Wrench, Car, Search, FileText, Check, ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';
+
 const ServicesPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const mainServices = [
         {
             id: 'rescue',
             icon: towedCar,
             title: 'إنقاذ السيارات',
-            shortDesc: 'خدمة ونش سريعة وآمنة',
+            shortDesc: 'خدمة ونش سريعة وآمنة على مدار الساعة',
             description: 'نقدم جميع خدمات إنقاذ السيارات بأسرع وأفضل خدمة إنقاذ للسيارات في مصر بشكل غير مسبوق. نمتلك أسطولاً حديثاً من الونشات المجهزة بأحدث التقنيات لضمان نقل آمن لجميع أنواع السيارات.',
             features: [
                 'ونش مسطح للسيارات الفاخرة والرياضية',
                 'ونش هيدروليكي لجميع أنواع السيارات',
                 'نقل السيارات المعطلة أو المتضررة',
-                'خدمة 24 ساعة في جميع أنحاء مصر',
-                'فريق محترف ومدرب على أعلى مستوى',
-                'معدات حديثة وآمنة تحافظ على سيارتك'
+                'خدمة 24 ساعة في جميع أنحاء مصر'
             ]
         },
         {
             id: 'equipment',
             icon: tools,
             title: 'نقل المعدات',
-            shortDesc: 'نقل المعدات والكرفانات الثقيلة',
+            shortDesc: 'نقل المعدات والكرفانات الثقيلة باحترافية',
             description: 'نقدم جميع خدمات نقل المعدات الثقيلة والكرفانات والماكينات بأمان تام. نمتلك مقطورات متخصصة ومعدات تثبيت متقدمة لضمان نقل آمن لجميع أنواع المعدات.',
             features: [
                 'نقل الكرفانات بجميع أحجامها',
                 'نقل معدات البناء والحفر',
-                'نقل الجرارات والمعدات الزراعية',
-                'نقل المولدات والماكينات الثقيلة',
-                'نقل الحاويات والفشلات',
-                'تأمين شامل على المعدات المنقولة'
+                'تأمين شامل على المعدات المنقولة',
+                'فريق متخصص للأحمال الثقيلة'
             ]
         },
         {
             id: 'fuel',
             icon: fuel,
             title: 'التزود بالوقود',
-            shortDesc: 'توصيل وقود سريع إلى موقعك',
+            shortDesc: 'توصيل الوقود إلى موقعك في أسرع وقت',
             description: 'اذا نفذ وقود سيارتك فلا داعي للقلق، فنحن نقدم خدمة التزود بالوقود في الطريق. فريق أوتوبات جاهز لتزويدكم بالوقود في أي مكان وأي وقت.',
             features: [
-                'توصيل جميع أنواع الوقود (80، 92، 95، ديزل)',
+                'توصيل جميع أنواع الوقود (80، 92، 95)',
                 'خدمة سريعة تصل خلال 20 دقيقة',
                 'معدات نقل وقود آمنة ومرخصة',
-                'أسعار عادلة ومنافسة',
-                'متاح على جميع الطرق والمناطق',
-                'خدمة 24/7 بدون توقف'
+                'متاح على جميع الطرق السريعة'
             ]
         },
         {
             id: 'battery',
             icon: battery,
             title: 'وصلة بطارية',
-            shortDesc: 'تشغيل سيارتك فوراً',
+            shortDesc: 'إعادة الحياة لسيارتك أينما كنت',
             description: 'نقدم جميع خدمات أعطال البطاريات والتي تحتاج الي وصلة. فريق ونش انقاذ أوتوبات جاهز وعلي أتم الاستعداد لمساعدتكم في أي مكان.',
             features: [
                 'وصلة بطارية احترافية وآمنة',
                 'فحص حالة البطارية مجاناً',
                 'توفير بطاريات جديدة عند الحاجة',
-                'نصائح للحفاظ على البطارية',
-                'معدات حديثة تحافظ على النظام الكهربائي',
-                'خدمة متنقلة في جميع المناطق'
+                'نصائح للحفاظ على عمر البطارية'
             ]
         },
         {
             id: 'tires',
             icon: tires,
             title: 'تغيير الاطارات',
-            shortDesc: 'إصلاح وتغيير إطارات فوري',
+            shortDesc: 'إصلاح وتغيير الإطارات في موقعك',
             description: 'اذا حصل ظرف طارئ في الطريق وقد احتجت الي تغيير او استبدال احدي اطارات سيارتك فنحن نقدم خدمة تغيير واستبدال الاطارات في الطريق بكل احترافية.',
             features: [
                 'تغيير الإطار التالف بالاحتياطي',
                 'إصلاح الثقوب الصغيرة في الموقع',
-                'فحص ضغط الهواء في جميع الإطارات',
-                'توفير إطارات جديدة عند الطلب',
-                'خدمة سريعة وآمنة',
-                'أدوات ومعدات احترافية'
+                'فحص ضغط الهواء لجميع الإطارات',
+                'أدوات ومعدات رفع احترافية'
             ]
         }
     ];
 
     const additionalServices = [
         {
-            icon: <Wrench size={70} color='var(--accent)' />,
+            icon: <Wrench size={40} />,
             title: 'فتح السيارات المغلقة',
-            description: 'نساعدك في فتح سيارتك إذا نسيت المفتاح بالداخل'
+            description: 'نساعدك في فتح سيارتك إذا نسيت المفتاح بالداخل دون أي ضرر.'
         },
         {
-            icon: <Car size={70} color='var(--accent)' />,
+            icon: <Car size={40} />,
             title: 'سحب السيارات العالقة',
-            description: 'إنقاذ السيارات العالقة في الرمال أو الطين'
+            description: 'إنقاذ السيارات العالقة في الرمال أو الطين بأفضل المعدات.'
         },
         {
-            icon: <Search size={70} color='var(--accent)' />,
+            icon: <Search size={40} />,
             title: 'فحص ما قبل النقل',
-            description: 'فحص شامل للسيارة قبل النقل لضمان سلامتها'
+            description: 'فحص شامل للسيارة قبل النقل لضمان سلامتها التامة.'
         },
         {
-            icon: <FileText size={70} color='var(--accent)' />,
-            title: 'تقارير مفصلة',
-            description: 'تقرير كامل عن حالة السيارة والخدمة المقدمة'
+            icon: <FileText size={40} />,
+            title: 'تقارير فنية',
+            description: 'تقرير كامل عن حالة السيارة والخدمة المقدمة لتوثيق الحالة.'
         }
     ];
 
-    const pricingFeatures = [
-        'أسعار شفافة وواضحة',
-        'لا توجد رسوم خفية',
-        'عروض خاصة للعملاء الدائمين',
-        'أسعار تنافسية في السوق',
-        'إمكانية الدفع نقداً أو إلكترونياً',
-        'فاتورة رسمية لكل خدمة'
+    const whyData = [
+        {
+            num: '01',
+            title: 'استجابة فورية',
+            desc: 'نحن ندرك قيمة الوقت في حالات الطوارئ ونصل إليك بسرعة قصوى.'
+        },
+        {
+            num: '02',
+            title: 'فريق محترف',
+            desc: 'فنيون مدربون على أعلى مستوى للتعامل مع كافة الحالات.'
+        },
+        {
+            num: '03',
+            title: 'معدات حديثة',
+            desc: 'أحدث الونشات والمعدات المتطورة لضمان سلامة سيارتك.'
+        }
     ];
 
     return (
-        <div className="page-services">
+        <div className="services-v2">
+            <Helmet>
+                <title>خدماتنا | ونش إنقاذ الجمهورية - أسرع ونش إنقاذ سيارات</title>
+                <meta name="description" content="تعرف على خدمات ونش إنقاذ الجمهورية المتميزة: إنقاذ سيارات، نقل معدات، تزود بالوقود، وصلة بطارية، وتغيير إطارات في جميع أنحاء مصر." />
+            </Helmet>
+
             {/* Hero Section */}
-            <section className="page-services-hero" style={{ backgroundImage: `url(${heroBackground})` }}>
-                <div className="page-services-hero-overlay"></div>
-                <div className="page-services-hero-content">
-                    <h1 className="page-services-hero-title">خدماتنا <span className="highlight">المتميزة</span></h1>
-                    <p className="page-services-hero-subtitle">نقدم مجموعة شاملة من خدمات إنقاذ السيارات على مدار الساعة</p>
-                    <div className="breadcrumb">
-                        <a href="/">الرئيسية</a>
-                        <span className="separator">/</span>
-                        <span>الخدمات</span>
+            <section className="services-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>
+                <div className="hero-overlay-v2"></div>
+                <div className="container-v2">
+                    <div className="hero-content-v2">
+                        <div className="breadcrumb-v2">
+                            <a href="/">الرئيسية</a>
+                            <span>/</span>
+                            <span>الخدمات</span>
+                        </div>
+                        <h1 className="hero-title-v2">خدماتنا <span className="highlight">المتميزة</span></h1>
+                        <p className="hero-subtitle-v2">حلول شاملة واحترافية لإنقاذ السيارات والمعدات على مدار الساعة في جميع أنحاء الجمهورية</p>
                     </div>
                 </div>
             </section>
 
-            {/* Services Overview */}
-            <section className="page-services-overview">
-                <div className="overview-container">
-                    <div className="overview-header">
-                        <h3 className="section-subtitle">ما نقدمه لك</h3>
-                        <h2 className="section-title">
-                            خدمات <span className="highlight">متكاملة</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
+            {/* Main Services Grid */}
+            <section className="main-services-v2">
+                <div className="container-v2">
+                    <div className="section-header centered">
+                        <div className="header-meta">
+                            <span className="dot"></span>
+                            <h4 className="sub-title">تنوع وتميز</h4>
                         </div>
-                        <p className="overview-description">
-                            نحن نقدم مجموعة واسعة من خدمات إنقاذ السيارات والونش في جميع أنحاء مصر.
-                            فريقنا المحترف متاح على مدار 24 ساعة لضمان راحتك وسلامتك على الطريق.
+                        <h2 className="main-title">
+                            خدمات <span className="highlight">احترافية</span>
+                        </h2>
+                        <p className="section-description">
+                            نقدم باقة واسعة من الخدمات المصممة لتلبية كافة احتياجاتك على الطريق وبأعلى معايير الجودة العالمية
                         </p>
                     </div>
-                </div>
-            </section>
 
-            {/* Main Services */}
-            {mainServices.map((service, index) => (
-                <section
-                    key={service.id}
-                    className={`page-service-detail ${index % 2 === 0 ? 'even' : 'odd'}`}
-                >
-                    <div className="page-service-detail-container">
-                        <div className="page-service-detail-content">
-                            <div className="page-service-detail-icon">
-                                <img src={service.icon} alt={service.title} />
-                            </div>
-                            <div className="page-service-detail-text">
-                                <h2 className="page-service-detail-title">{service.title}</h2>
-                                <p className="page-service-detail-short">{service.shortDesc}</p>
-                                <p className="page-service-detail-description">{service.description}</p>
-                                <ul className="page-service-features-list">
-                                    {service.features.map((feature, idx) => (
-                                        <li key={idx}>
-
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <a href="/contact" className="page-service-cta-button">
-                                    احجز الخدمة الآن
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            ))}
-
-            {/* Additional Services */}
-            <section className="additional-services">
-                <div className="additional-container">
-                    <div className="additional-header">
-                        <h3 className="section-subtitle">خدمات إضافية</h3>
-                        <h2 className="section-title">
-                            المزيد من <span className="highlight">الخدمات</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                    <div className="additional-grid">
-                        {additionalServices.map((service, index) => (
-                            <div key={index} className="additional-card">
-                                <div className="additional-icon">{service.icon}</div>
-                                <h3 className="additional-title">{service.title}</h3>
-                                <p className="additional-description">{service.description}</p>
+                    <div className="services-detail-grid-v2">
+                        {mainServices.map((service, index) => (
+                            <div key={service.id} className="service-detail-card-v2">
+                                <div className="service-card-img-v2">
+                                    <img src={service.icon} alt={service.title} />
+                                </div>
+                                <div className="service-card-info-v2">
+                                    <h3 className="service-card-title-v2">{service.title}</h3>
+                                    <p className="service-card-short-v2">{service.shortDesc}</p>
+                                    <p className="service-card-desc-v2">{service.description}</p>
+                                    <div className="service-features-v2">
+                                        {service.features.map((feature, idx) => (
+                                            <div key={idx} className="s-feature-v2">
+                                                <Check size={16} className="check-icon" />
+                                                <span>{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <a href={`tel:+2${phoneNumbers[0]}`} className="service-btn-v2">
+                                        اطلب الخدمة الآن
+                                        <ArrowRight size={18} />
+                                    </a>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Pricing Features */}
-            <section className="pricing-section">
-                <div className="pricing-container">
-                    <div className="pricing-content">
-                        <h3 className="section-subtitle">أسعار عادلة</h3>
-                        <h2 className="section-title">
-                            <span className="white-highlight">التسعير</span> والدفع
+            {/* Additional Services */}
+            <section className="extra-services-v2">
+                <div className="container-v2">
+                    <div className="section-header centered">
+                        <div className="header-meta">
+                            <span className="dot"></span>
+                            <h4 className="sub-title">حلول متكاملة</h4>
+                        </div>
+                        <h2 className="main-title">
+                            نحن <span className="highlight">نهتم بكل التفاصيل</span>
                         </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                        <p className="pricing-description">
-                            نحن نؤمن بالشفافية الكاملة في التسعير. جميع أسعارنا واضحة ومعلنة مسبقاً،
-                            ولا نفرض أي رسوم خفية. نقدم أفضل قيمة مقابل المال مع الحفاظ على أعلى معايير الجودة.
-                        </p>
-                        <div className="pricing-features">
-                            {pricingFeatures.map((feature, index) => (
-                                <div key={index} className="pricing-feature">
-                                    <span className="pricing-check">✓</span>
-                                    <span>{feature}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <a href="/contact" className="pricing-cta">
-                            اطلب عرض سعر الآن
-                        </a>
+                    </div>
+
+                    <div className="extra-grid-v2">
+                        {additionalServices.map((service, index) => (
+                            <div key={index} className="extra-card-v2">
+                                <div className="extra-icon-v2">{service.icon}</div>
+                                <h3 className="extra-title-v2">{service.title}</h3>
+                                <p className="extra-desc-v2">{service.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Why Choose Our Services */}
-            <section className="why-our-services">
-                <div className="why-container">
-                    <div className="why-header">
-                        <h3 className="section-subtitle">التميز في الخدمة</h3>
-                        <h2 className="section-title">
-                            لماذا تختار <span className="highlight">خدماتنا</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                    <div className="why-grid">
-                        <div className="why-card">
-                            <div className="why-number">01</div>
-                            <h3>استجابة فورية</h3>
-                            <p>نصل إليك خلال 20 دقيقة أو أقل في معظم المناطق</p>
-                        </div>
-                        <div className="why-card">
-                            <div className="why-number">02</div>
-                            <h3>فريق محترف</h3>
-                            <p>فنيون مدربون ومعتمدون بخبرة تزيد عن 10 سنوات</p>
-                        </div>
-                        <div className="why-card">
-                            <div className="why-number">03</div>
-                            <h3>معدات حديثة</h3>
-                            <p>أحدث الونشات والمعدات المتطورة والآمنة</p>
-                        </div>
-                        <div className="why-card">
-                            <div className="why-number">04</div>
-                            <h3>تغطية شاملة</h3>
-                            <p>نخدم جميع محافظات مصر بدون استثناء</p>
-                        </div>
-                        <div className="why-card">
-                            <div className="why-number">05</div>
-                            <h3>متاح 24/7</h3>
-                            <p>خدمة على مدار الساعة طوال أيام الأسبوع</p>
-                        </div>
-                        <div className="why-card">
-                            <div className="why-number">06</div>
-                            <h3>أسعار منافسة</h3>
-                            <p>أفضل الأسعار في السوق مع جودة لا تضاهى</p>
+            {/* Pricing Feature */}
+            <section className="pricing-v2">
+                <div className="container-v2">
+                    <div className="pricing-box-v2">
+                        <div className="pricing-content-v2">
+                            <div className="header-meta">
+                                <span className="dot"></span>
+                                <h4 className="sub-title" style={{ color: 'white' }}>الشفافية هي شعارنا</h4>
+                            </div>
+                            <h2 className="pricing-title-v2">التسعير <span className="highlight">العادل</span> والشامل</h2>
+                            <p className="pricing-desc-v2">
+                                نحن نلتزم بتقديم أفضل قيمة مقابل السعر. لا توجد رسوم خفية أو مصاريف إضافية غير معلنة. يمكنك الاعتماد علينا في الحصول على خدمة متميزة بسعر مناسب.
+                            </p>
+                            <div className="pricing-list-v2">
+                                <div className="p-item-v2">✓ لا توجد رسوم خفية</div>
+                                <div className="p-item-v2">✓ أسعار تنافسية جداً</div>
+                                <div className="p-item-v2">✓ فاتورة رسمية بالخدمة</div>
+                                <div className="p-item-v2">✓ عروض للشركات والتعاقدات</div>
+                            </div>
+                            <div className="pricing-actions-v2">
+                                <a href={`tel:+2${phoneNumbers[0]}`} className="btn-p-primary-v2">
+                                    <Phone size={20} />
+                                    اتصل للاستفسار
+                                </a>
+                                <a href="/contact" className="btn-p-outline-v2">
+                                    <MessageSquare size={20} />
+                                    احجز عبر الموقع
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="page-services-cta">
-                <div className="cta-content">
-                    <h2 className="cta-title">هل تحتاج إلى مساعدة فورية؟</h2>
-                    <p className="cta-description">
-                        فريقنا جاهز للاستجابة لطلبك على مدار الساعة. اتصل بنا الآن أو احجز خدمتك عبر الإنترنت.
-                    </p>
-                    <div className="cta-buttons">
-                        <a href={`tel:+2${phoneNumbers[0]}`} className="cta-button primary">
-                            اتصل الآن
-                        </a>
-                        <a href="/contact" className="cta-button secondary">
-                            احجز عبر الإنترنت
+            {/* Why Choose Section (Simplified version) */}
+            <section className="why-services-v2">
+                <div className="container-v2">
+                    <div className="section-header centered">
+                        <div className="header-meta">
+                            <span className="dot"></span>
+                            <h4 className="sub-title">لماذا نحن؟</h4>
+                        </div>
+                        <h2 className="main-title">سر تميز <span className="highlight">خدماتنا</span></h2>
+                    </div>
+
+                    <div className="why-grid-v2">
+                        {whyData.map((item, index) => (
+                            <div key={index} className="why-card-v2">
+                                <span className="why-num-v2">{item.num}</span>
+                                <h3 className="why-title-v2">{item.title}</h3>
+                                <p className="why-desc-v2">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Final CTA */}
+            <section className="final-cta-v2">
+                <div className="container-v2">
+                    <div className="cta-card-v2">
+                        <div className="cta-info-v2">
+                            <h2 className="cta-title-v2">هل أنت عالق في الطريق؟</h2>
+                            <p className="cta-desc-v2">خدمة الإنقاذ السريع متاحة الآن. ضغطة واحدة تفصلك عن وصول الونش إليك.</p>
+                        </div>
+                        <a href={`tel:+2${phoneNumbers[0]}`} className="btn-call-now-v2">
+                            اتصل بنا الآن
+                            <Phone size={24} />
                         </a>
                     </div>
                 </div>
