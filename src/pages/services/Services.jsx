@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import './Services.css';
 import heroBackground from '../../media/hero-background.png';
 import tires from '../../media/tires.png';
@@ -126,10 +125,6 @@ const ServicesPage = () => {
 
     return (
         <div className="services-v2">
-            <Helmet>
-                <title>خدماتنا | ونش إنقاذ الجمهورية - أسرع ونش إنقاذ سيارات</title>
-                <meta name="description" content="تعرف على خدمات ونش إنقاذ الجمهورية المتميزة: إنقاذ سيارات، نقل معدات، تزود بالوقود، وصلة بطارية، وتغيير إطارات في جميع أنحاء مصر." />
-            </Helmet>
 
             {/* Hero Section */}
             <section className="services-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>

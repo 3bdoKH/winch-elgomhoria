@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import './ArticleDetails.css';
 import { articlesAPI } from '../../services/api';
 import { phoneNumbers } from '../../data/phoneNumbers';
@@ -57,15 +56,6 @@ const ArticleDetails = () => {
 
     return (
         <div className="article-details-page">
-            <Helmet>
-                <title>{article.title} - ونش إنقاذ الجمهورية</title>
-                <meta name="description" content={article.excerpt || article.content.substring(0, 160)} />
-                <meta property="og:title" content={`${article.title} | ونش انقاذ`} />
-                <meta property="og:description" content={article.excerpt} />
-                <meta property="og:image" content={article.image} />
-                <meta property="og:type" content="article" />
-                <link rel="canonical" href={shareUrl} />
-            </Helmet>
 
             {/* Article Hero */}
             <header className="article-hero" style={article.image ? { backgroundImage: `url(https://winchenqaz.com${article.image})` } : {}}>

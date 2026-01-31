@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import './Contact.css';
 import heroBackground from '../../media/hero-background.png';
 import contactImage from '../../media/contact.jpg';
@@ -66,10 +65,6 @@ const Contact = () => {
 
     return (
         <div className="contact-v2">
-            <Helmet>
-                <title>تواصل معنا | ونش إنقاذ الجمهورية - نحن هنا لخدمتكم 24/7</title>
-                <meta name="description" content="اتصل بنا الآن لطلب ونش إنقاذ سريع. نحن نعمل على مدار الساعة لتأمين سلامتك على الطريق في جميع محافظات مصر." />
-            </Helmet>
 
             {/* Hero Section */}
             <section className="contact-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>

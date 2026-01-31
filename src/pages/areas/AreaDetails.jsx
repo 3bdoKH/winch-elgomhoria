@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import './AreaDetails.css';
 import heroBackground from '../../media/hero-background.png';
 import contactImage from '../../media/contact.jpg';
@@ -155,59 +154,8 @@ const AreaDetails = () => {
     const content = generateContent();
     const displayName = isMainArea ? mainArea.name : subarea;
 
-    // Structured Data (Schema.org)
-    const structuredData = {
-        "@context": "https://schema.org",
-        "@type": "AutoTowingService",
-        "name": `ونش انقاذ ${displayName}`,
-        "description": content.intro,
-        "url": window.location.href,
-        "telephone": `+2${phoneNumbers[0]}`,
-        "areaServed": {
-            "@type": "Place",
-            "name": displayName
-        },
-        "priceRange": "$$",
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "1250"
-        },
-        "image": [
-            heroBackground,
-            contactImage
-        ]
-    };
-
     return (
         <div className="area-details-page">
-            <Helmet>
-                <title>{content.title} | أسرع ونش انقاذ 24/7</title>
-                <meta name="description" content={`${content.intro} اتصل الآن على ${phoneNumbers[0]} لنصلك فوراً.`} />
-                <meta name="keywords" content={`ونش انقاذ ${displayName}, انقاذ سيارات ${displayName}, رقم ونش انقاذ في ${displayName}, تليفون ونش انقاذ ${displayName}, اسرع ونش انقاذ في ${displayName}, ونش, انقاذ, سيارات, ${displayName}`} />
-                <meta property="og:title" content={`${content.title} | ونش انقاذ سريع`} />
-                <meta property="og:description" content={content.intro} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={window.location.href} />
-                <link rel="canonical" href={window.location.href} />
-                <script type="application/ld+json">
-                    {JSON.stringify(structuredData)}
-                </script>
-            </Helmet>
             {/* Hero Section */}
             <section className="area-details-hero" style={{ backgroundImage: `url(${heroBackground})` }}>
                 <div className="area-details-hero-overlay"></div>

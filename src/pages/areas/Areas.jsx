@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import './Areas.css';
 import heroBackground from '../../media/hero-background.png';
 import { areas } from '../../data/areas';
@@ -44,10 +43,6 @@ const Areas = () => {
 
     return (
         <div className="areas-v2">
-            <Helmet>
-                <title>تغطيتنا | ونش إنقاذ الجمهورية - نصل إليك في كل مكان</title>
-                <meta name="description" content="تغطية شاملة لجميع محافظات مصر: القاهرة، الجيزة، أكتوبر، الإسكندرية، وكافة الطرق السريعة. أسرع ونش إنقاذ نصلك خلال دقائق." />
-            </Helmet>
 
             {/* Hero Section */}
             <section className="areas-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import './Articles.css';
 import heroBackground from '../../media/hero-background.png';
 import { articlesAPI } from '../../services/api';
@@ -57,10 +56,6 @@ const ArticlesPage = () => {
 
     return (
         <div className="articles-v2">
-            <Helmet>
-                <title>مدونة الإنقاذ | ونش إنقاذ الجمهورية - نصائح وأخبار</title>
-                <meta name="description" content="اقرأ أحدث النصائح والمقالات حول صيانة السيارات، وكيفية التصرف في حالات الطوارئ، وأخبار خدماتنا في كافة المحافظات." />
-            </Helmet>
 
             {/* Hero Section */}
             <section className="articles-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>
