@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Users, Star, Building, Car } from 'lucide-react';
+import { Users, Star, Building, Car, Plus } from 'lucide-react';
 import './Stats.css';
+
 const Stats = () => {
   const [counters, setCounters] = useState({
     experience: 0,
@@ -15,30 +16,30 @@ const Stats = () => {
   const statsData = [
     {
       id: 'experience',
-      icon: <Star color='white' size={60} />,
+      icon: <Star size={32} />,
       target: 30,
-      label: 'سنوات من الخبرة',
+      label: 'عاما من الخبرة',
       duration: 2000
     },
     {
       id: 'offices',
-      icon: <Building color='white' size={60} />,
+      icon: <Building size={32} />,
       target: 74,
-      label: 'مكاتب حول العالم',
+      label: 'مكتب وشريك',
       duration: 2000
     },
     {
       id: 'vehicles',
-      icon: <Car color='white' size={60} />,
-      target: 3720,
-      label: 'مركبة تم سحبها',
+      icon: <Car size={32} />,
+      target: 5000,
+      label: 'عملية إنقاذ',
       duration: 2500
     },
     {
       id: 'workers',
-      icon: <Users color='white' size={60} />,
+      icon: <Users size={32} />,
       target: 874,
-      label: 'عامل في الفريق',
+      label: 'عنصر في الفريق',
       duration: 2200
     }
   ];
@@ -61,6 +62,7 @@ const Stats = () => {
   };
 
   useEffect(() => {
+    const currentRef = statsRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -72,8 +74,6 @@ const Stats = () => {
       },
       { threshold: 0.3 }
     );
-
-    const currentRef = statsRef.current;
 
     if (currentRef) {
       observer.observe(currentRef);
@@ -88,22 +88,30 @@ const Stats = () => {
   }, [hasAnimated]);
 
   return (
-    <section className="stats-section" ref={statsRef}>
-      <div className="stats-overlay"></div>
+    <section className="stats-v2" ref={statsRef}>
+      <div className="stats-bg-dots"></div>
       <div className="stats-container">
-        {statsData.map((stat) => (
-          <div key={stat.id} className="stat-item">
-            <div className="stat-icon">{stat.icon}</div>
-            <div className="home-stat-number">
-              {counters[stat.id].toLocaleString()}
+        <div className="stats-grid-v2">
+          {statsData.map((stat) => (
+            <div key={stat.id} className="stat-card-v2">
+              <div className="stat-card-inner">
+                <div className="stat-icon-wrapper-v2">
+                  {stat.icon}
+                </div>
+                <div className="stat-number-content">
+                  <div className="stat-number-v2">
+                    {counters[stat.id].toLocaleString()}
+                    <Plus size={24} className="plus-icon" />
+                  </div>
+                  <div className="stat-label-v2">{stat.label}</div>
+                </div>
+              </div>
             </div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default Stats;
-

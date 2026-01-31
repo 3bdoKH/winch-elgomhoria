@@ -215,7 +215,7 @@
   color: white;
 }
 
-.feature-icon {
+.feature-icon-offer {
   width: 22px;
   height: 22px;
 }
@@ -340,7 +340,7 @@
     height: 40px;
   }
 
-  .feature-icon {
+  .feature-icon-offer {
     width: 20px;
     height: 20px;
   }

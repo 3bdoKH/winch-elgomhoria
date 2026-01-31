@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Blog.css';
 import { articlesAPI } from '../../services/api';
 import { Link } from 'react-router-dom';
+import { Calendar, User, ArrowRight } from 'lucide-react';
 
 const Blog = () => {
     const [articles, setArticles] = useState([]);
@@ -25,14 +26,12 @@ const Blog = () => {
         }
     };
 
-    // Function to format date to Arabic
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return date.toLocaleDateString('ar-EG', options);
     };
 
-    // Function to get image URL
     const getImageUrl = (image) => {
         if (!image) return '/placeholder-article.jpg';
         if (image.startsWith('/api/')) {
@@ -41,68 +40,68 @@ const Blog = () => {
         return image;
     };
 
-    if (loading) {
-        return (
-            <section className="blog-section">
-                <div className="blog-container">
-                    <div className="blog-loading">جاري تحميل المقالات...</div>
-                </div>
-            </section>
-        );
-    }
-
-    if (articles.length === 0) {
-        return null; // Don't show section if no articles
-    }
+    if (loading || articles.length === 0) return null;
 
     return (
-        <section className="blog-section">
+        <section className="blog-v2">
             <div className="blog-container">
-                <div className="blog-header">
-                    <h3 className="blog-subtitle">في أي مكان، في أي وقت</h3>
-                    <h2 className="blog-title">
+                <div className="section-header centered">
+                    <div className="header-meta">
+                        <span className="dot"></span>
+                        <h4 className="sub-title">آخر الأخبار</h4>
+                    </div>
+                    <h2 className="main-title">
                         مدونتنا <span className="highlight">الإخبارية</span>
                     </h2>
-                    <div className="blog-divider">
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                    </div>
+                    <p className="section-description">
+                        نصائح وإرشادات هامة للحفاظ على سلامتك وسلامة سيارتك على الطريق
+                    </p>
                 </div>
 
-                <div className="blog-grid">
+                <div className="blog-grid-v2">
                     {articles.map((article) => (
                         <Link
                             key={article.id}
                             to={`/articles/${article.slug}`}
-                            className="blog-card"
+                            className="blog-card-v2"
                         >
-                            <div className="blog-image-wrapper">
+                            <div className="blog-img-wrapper">
                                 <img
                                     src={getImageUrl(article.image)}
                                     alt={article.title}
-                                    className="blog-image"
+                                    className="blog-img"
                                     onError={(e) => {
                                         e.target.src = '/placeholder-article.jpg';
                                     }}
                                 />
-                                <div className="blog-image-overlay"></div>
+                                <div className="blog-category">نصائح الطريق</div>
                             </div>
-                            <div className="blog-card-content">
-                                <h3 className="blog-card-title">{article.title}</h3>
-                                <p className="blog-card-excerpt">{article.excerpt}</p>
-                                <div className="blog-card-footer">
-                                    <span className="blog-date">{formatDate(article.date)}</span>
-                                    <span className="blog-author">بواسطة {article.author}</span>
+
+                            <div className="blog-info-v2">
+                                <div className="blog-meta-v2">
+                                    <div className="meta-item-v2">
+                                        <Calendar size={14} />
+                                        <span>{formatDate(article.date)}</span>
+                                    </div>
+                                    <div className="meta-item-v2">
+                                        <User size={14} />
+                                        <span>{article.author}</span>
+                                    </div>
+                                </div>
+                                <h3 className="blog-card-title-v2">{article.title}</h3>
+                                <p className="blog-card-excerpt-v2">{article.excerpt}</p>
+                                <div className="blog-read-more">
+                                    <span>اقرأ المزيد</span>
+                                    <ArrowRight size={18} />
                                 </div>
                             </div>
                         </Link>
                     ))}
                 </div>
-                <div className="blog-button-container">
-                    <Link to="/articles" className="blog-button">
-                        عرض الكل
+
+                <div className="blog-footer">
+                    <Link to="/articles" className="btn-all-posts">
+                        تصفح جميع المقالات
                     </Link>
                 </div>
             </div>

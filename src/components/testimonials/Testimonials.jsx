@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Quote, Star, ChevronRight, ChevronLeft, User } from 'lucide-react';
 import './Testimonials.css';
 import { testimonials } from '../../data/testimonials';
 
@@ -30,55 +31,79 @@ const Testimonials = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             handleNext();
-        }, 5000);
+        }, 6000);
 
         return () => clearInterval(interval);
     }, [handleNext]);
 
     return (
-        <section className="testimonials-section">
-            <div className="testimonials-overlay"></div>
+        <section className="testimonials-v2">
+            <div className="testimonials-bg-decoration"></div>
             <div className="testimonials-container">
-                <div className="testimonials-header">
-                    <h3 className="testimonials-subtitle">آراء عملائنا</h3>
-                    <h2 className="testimonials-title">
-                        ماذا يقول <span className="highlight">عملاؤنا</span>
-                    </h2>
-                    <div className="testimonials-divider">
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
+                <div className="section-header centered">
+                    <div className="header-meta">
+                        <span className="dot"></span>
+                        <h4 className="sub-title">ثقة عملائنا هي سر نجاحنا</h4>
                     </div>
+                    <h2 className="main-title">
+                        ماذا يقولون <span className="highlight">عن خدماتنا</span>
+                    </h2>
                 </div>
 
-                <div className="testimonials-slider">
-                    <button className="custom-arrow arrow-prev" onClick={handlePrev}>
-                        <span>{'<'}</span>
-                    </button>
+                <div className="testimonial-slider-v2">
+                    <div className="slider-controls">
+                        <button className="nav-btn prev" onClick={handlePrev} aria-label="Previous testimonial">
+                            <ChevronRight size={24} />
+                        </button>
+                        <button className="nav-btn next" onClick={handleNext} aria-label="Next testimonial">
+                            <ChevronLeft size={24} />
+                        </button>
+                    </div>
 
-                    <div className="testimonial-wrapper">
-                        <div className={`testimonial-item ${isAnimating ? 'fade-out' : 'fade-in'}`}>
-                            <div className="testimonial-content">
-                                <div className="quote-icon">"</div>
-                                <p className="testimonial-text">
-                                    {testimonials[currentIndex].review}
-                                </p>
-                                <div className="testimonial-author">
-                                    <h4 className="author-name">
-                                        {testimonials[currentIndex].name}
-                                    </h4>
-                                    <p className="author-role">
-                                        {testimonials[currentIndex].role}
-                                    </p>
+                    <div className="testimonial-track">
+                        <div className={`testimonial-card-v2 ${isAnimating ? 'animating' : ''}`}>
+                            <div className="card-top">
+                                <div className="quote-icon-wrapper">
+                                    <Quote size={40} className="quote-icon" />
+                                </div>
+                                <div className="rating">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} size={18} fill="var(--accent)" color="var(--accent)" />
+                                    ))}
+                                </div>
+                            </div>
+
+                            <p className="testimonial-review">
+                                {testimonials[currentIndex].review}
+                            </p>
+
+                            <div className="card-bottom">
+                                <div className="author-avatar">
+                                    <User size={25} />
+                                </div>
+                                <div className="author-info">
+                                    <h4>{testimonials[currentIndex].name}</h4>
+                                    <span>{testimonials[currentIndex].role}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <button className="custom-arrow arrow-next" onClick={handleNext}>
-                        <span>{'>'}</span>
-                    </button>
+                    <div className="slider-dots">
+                        {testimonials.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`dot-indicator ${index === currentIndex ? 'active' : ''}`}
+                                onClick={() => {
+                                    if (index !== currentIndex && !isAnimating) {
+                                        setIsAnimating(true);
+                                        setCurrentIndex(index);
+                                        setTimeout(() => setIsAnimating(false), 500);
+                                    }
+                                }}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
@@ -86,4 +111,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-

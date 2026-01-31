@@ -7,31 +7,31 @@ const WhatWeOffer = () => {
     const features = [
         {
             id: 1,
-            icon: <Award className="feature-icon" />,
+            icon: <Award className="feature-icon-offer" />,
             title: 'خبرة طويلة',
             description: 'أكثر من 30 عامًا من التميز والخبرة في مجال انقاذ السيارات'
         },
         {
             id: 2,
-            icon: <Zap className="feature-icon" />,
+            icon: <Zap className="feature-icon-offer" />,
             title: 'سرعة قياسية',
             description: 'نصل إليك في وقت قياسي (20 دقيقة أو أقل) أينما كنت'
         },
         {
             id: 3,
-            icon: <Wallet className="feature-icon" />,
+            icon: <Wallet className="feature-icon-offer" />,
             title: 'أسعار عادلة',
             description: 'خدمة متميزة بأسعار تنافسية وبدون أي رسوم خفية'
         },
         {
             id: 4,
-            icon: <ThumbsUp className="feature-icon" />,
+            icon: <ThumbsUp className="feature-icon-offer" />,
             title: 'فريق محترف',
             description: 'طاقم عمل مدرب للتعامل باحترافية وود مع جميع العملاء'
         },
         {
             id: 5,
-            icon: <Clock className="feature-icon" />,
+            icon: <Clock className="feature-icon-offer" />,
             title: 'خدمة 24/7',
             description: 'متاحون لخدمتك طوال أيام الأسبوع وعلى مدار الساعة'
         }

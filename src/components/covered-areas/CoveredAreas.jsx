@@ -1,53 +1,57 @@
 import React from 'react';
 import './CoveredAreas.css';
 import { areas } from '../../data/areas';
-import { MapPin } from 'lucide-react';
+import { MapPin, ChevronLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const CoveredAreas = () => {
+    const navigate = useNavigate();
+
     return (
-        <section className="covered-areas">
+        <section className="covered-areas-v2">
             <div className="covered-areas-container">
-                <div className="covered-areas-header">
-                    <h3 className="section-subtitle">تغطية شاملة</h3>
-                    <h2 className="section-title">
+                <div className="section-header centered">
+                    <div className="header-meta">
+                        <span className="dot"></span>
+                        <h4 className="sub-title">تغطية شاملة</h4>
+                    </div>
+                    <h2 className="main-title">
                         المناطق التي <span className="highlight">نخدمها</span>
                     </h2>
-                    <div className="title-divider">
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                    </div>
-                    <p className="covered-areas-description">
-                        نقدم خدماتنا في جميع أنحاء مصر مع تغطية خاصة للمناطق التالية
+                    <p className="section-description">
+                        نواجد في جميع أنحاء الجمهورية لضمان وصولنا إليك في أسرع وقت ممكن
                     </p>
                 </div>
 
-                <div className="areas-grid">
-                    {areas.map((area, index) => (
-                        <a
+                <div className="areas-grid-v2">
+                    {areas.slice(0, 8).map((area, index) => (
+                        <div
                             key={index}
-                            href={`/areas?filter=${encodeURIComponent(area.name)}`}
-                            className="area-card"
+                            onClick={() => navigate(`/areas?filter=${encodeURIComponent(area.name)}`)}
+                            className="area-card-v2"
                         >
-                            <div className="area-card-icon">
-                                <MapPin color='var(--accent)' size={32} />
+                            <div className="area-card-icon-v2">
+                                <MapPin size={24} />
                             </div>
-                            <h3 className="area-card-title">{area.name}</h3>
-                            <div className="area-card-count">
-                                {area.areas.length} منطقة فرعية
+                            <div className="area-card-info-v2">
+                                <h3 className="area-name-v2">{area.name}</h3>
+                                <p className="area-sub-count-v2">{area.areas.length} منطقة داخلية</p>
                             </div>
-                            <span className="area-card-link">
-                                عرض المناطق
-                            </span>
-                        </a>
+                            <div className="area-card-arrow-v2">
+                                <ChevronLeft size={18} />
+                            </div>
+                        </div>
                     ))}
                 </div>
 
-                <div className="covered-areas-cta">
-                    <a href="/areas" className="view-all-areas-btn">
-                        عرض جميع المناطق
-                    </a>
+                <div className="covered-areas-footer">
+                    <button
+                        onClick={() => navigate('/areas')}
+                        className="btn-view-all"
+                    >
+                        عرض جميع مناطق التغطية
+                        <ChevronLeft size={20} />
+                    </button>
                 </div>
             </div>
         </section>
