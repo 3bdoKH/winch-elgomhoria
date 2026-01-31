@@ -6,445 +6,246 @@ import towedCar from '../../media/towed-car.png';
 import tools from '../../media/tools.png';
 import fuel from '../../media/fuel.png';
 import battery from '../../media/battery.png';
-import { ArrowBigUpDash, ShieldBan, HandCoins, Target, Handshake, Rocket, MapPin, Trophy, ShieldCheck } from 'lucide-react';
-import { Star } from 'lucide-react';
+import {
+    ShieldCheck,
+    Zap,
+    Award,
+    Headset,
+    Target,
+    Rocket,
+    MapPin,
+    ChevronLeft,
+    Clock,
+    CheckCircle2
+} from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';
+import { Link } from 'react-router-dom';
+
 const About = () => {
     const values = [
         {
             id: 1,
-            icon: <ArrowBigUpDash size={70} />,
-            title: "السرعة والكفاءة",
-            description: 'نصل إليك في أسرع وقت ممكن مع فريق محترف وجاهز دائماً'
+            icon: <Zap size={32} />,
+            title: "سرعة استجابة فائقة",
+            description: 'نلتزم بالوصول إليك في أسرع وقت ممكن (20 دقيقة أو أقل) لضمان عدم تعطل يومك.'
         },
         {
             id: 2,
-            icon: <ShieldBan size={70} />,
-            title: 'الأمان والجودة',
-            description: 'نستخدم أحدث المعدات والتقنيات لضمان سلامة سيارتك'
+            icon: <ShieldCheck size={32} />,
+            title: 'أمان تام ومضمون',
+            description: 'نستخدم أحدث التقنيات والمعدات لضمان سلامة سيارتك أثناء عملية الإنقاذ والسحب.'
         },
         {
             id: 3,
-            icon: <HandCoins size={70} />,
-            title: 'أسعار تنافسية',
-            description: 'نقدم أفضل الأسعار في السوق بدون رسوم خفية'
+            icon: <Award size={32} />,
+            title: 'خبرة عريقة',
+            description: 'أكثر من 10 سنوات من الريادة في تقديم خدمات إنقاذ وطوارئ الطرق بجميع أنحاء مصر.'
         },
         {
             id: 4,
-            icon: <Handshake size={70} />,
-            title: 'خدمة عملاء ممتازة',
-            description: 'فريق دعم متاح على مدار الساعة لخدمتك'
+            icon: <Headset size={32} />,
+            title: 'دعم فني 24/7',
+            description: 'فريقنا متاح دائماً للرد على اتصالاتكم وتقديم المساعدة في أي وقت ومن أي مكان.'
         }
     ];
 
-    const stats = [
-        { number: '10000+', label: 'عملية إنقاذ ناجحة' },
-        { number: '5000+', label: 'عميل راضٍ' },
-        { number: '50+', label: 'ونش وسيارة إنقاذ' },
-        { number: '24/7', label: 'خدمة على مدار الساعة' }
+    const timeline = [
+        { year: '2013', title: 'البداية الطموحة', desc: 'تأسيس الشركة بأسطول صغير يغطي مناطق القاهرة الكبرى.' },
+        { year: '2016', title: 'التوسع الإقليمي', desc: 'توسيع نطاق الخدمة ليشمل 10 محافظات رئيسية في الجمهورية.' },
+        { year: '2019', title: 'التطوير التقني', desc: 'إدخال أنظمة التتبع GPS وتحديث الأسطول بأحدث الأوناش الهيدروليكية.' },
+        { year: '2023', title: 'الريادة والتميز', desc: 'أصبحنا الخيار الأول للمصريين بأكثر من 50 ونش منتشر في جميع أنحاء مصر.' }
     ];
 
-    const features = [
-        {
-            icon: towedCar,
-            title: 'أسطول حديث',
-            description: 'نمتلك أحدث الونشات والمعدات المتطورة'
-        },
-        {
-            icon: tools,
-            title: 'فريق محترف',
-            description: 'فنيون مدربون على أعلى مستوى'
-        },
-        {
-            icon: fuel,
-            title: 'تغطية شاملة',
-            description: 'نخدم جميع محافظات مصر'
-        },
-        {
-            icon: battery,
-            title: 'استجابة سريعة',
-            description: 'نصل خلال 20 دقيقة أو أقل'
-        }
-    ];
-
-    const serviceAreas = [
-        'اكتوبر',
-        'الجيزه',
-        'اسكندريه',
-        'الحمام',
-        'العلمين',
-        'الساحل الشمالي',
-        'مرسى مطروح',
-    ];
-
-    const workProcess = [
-        {
-            step: '01',
-            title: 'اتصل بنا',
-            description: 'اتصل على رقمنا الموحد أو أرسل رسالة واتساب مع تحديد موقعك'
-        },
-        {
-            step: '02',
-            title: 'تحديد الموقع',
-            description: 'نحدد موقعك بدقة ونرسل أقرب ونش متاح إليك'
-        },
-        {
-            step: '03',
-            title: 'الوصول السريع',
-            description: 'يصل فريقنا خلال 20 دقيقة مع جميع المعدات اللازمة'
-        },
-        {
-            step: '04',
-            title: 'تنفيذ الخدمة',
-            description: 'نقدم الخدمة بكل احترافية وأمان تام لسيارتك'
-        }
-    ];
-
-    const certifications = [
-        {
-            icon: <Trophy size={70} color='var(--accent)' />,
-            title: 'معتمدون',
-            description: 'حاصلون على جميع التراخيص والشهادات اللازمة من الجهات المختصة'
-        },
-        {
-            icon: <ShieldCheck size={70} color='var(--accent)' />,
-            title: 'مؤمنون',
-            description: 'تأمين شامل على جميع السيارات والمعدات المنقولة'
-        },
-        {
-            icon: <Star size={70} color='var(--accent)' />,
-            title: 'معتمدون دولياً',
-            description: 'نتبع المعايير الدولية في خدمات الإنقاذ والونش'
-        }
+    const whyFeatures = [
+        { icon: towedCar, title: 'أسطول حديث ومتنوع' },
+        { icon: tools, title: 'فنيون متخصصون' },
+        { icon: fuel, title: 'تغطية لجميع المحافظات' },
+        { icon: battery, title: 'خدمات طوارئ متكاملة' }
     ];
 
     return (
-        <div className="about-page">
+        <div className="about-v2">
             {/* Hero Section */}
-            <section className="about-hero" style={{ backgroundImage: `url(${heroBackground})` }}>
-                <div className="about-hero-overlay"></div>
-                <div className="about-hero-content">
-                    <h1 className="about-hero-title">من <span className="highlight">نحن</span></h1>
-                    <p className="about-hero-subtitle">نقدم أفضل خدمات إنقاذ السيارات في مصر</p>
-                    <div className="breadcrumb">
-                        <a href="/">الرئيسية</a>
-                        <span className="separator">/</span>
+            <section className="about-hero-v2" style={{ backgroundImage: `url(${heroBackground})` }}>
+                <div className="hero-overlay-v2"></div>
+                <div className="hero-container-v2">
+                    <div className="breadcrumb-v2">
+                        <Link to="/">الرئيسية</Link>
+                        <ChevronLeft size={16} />
                         <span>من نحن</span>
                     </div>
+                    <h1 className="hero-title-v2">الريادة في <span className="highlight">إنقاذ السيارات</span></h1>
+                    <p className="hero-subtitle-v2">نحن معك أينما كنت.. أمان وسرعة واحترافية</p>
                 </div>
             </section>
 
-            {/* Company Introduction */}
-            <section className="company-intro">
-                <div className="intro-container">
-                    <div className="intro-content">
-                        <div className="intro-text">
-                            <h3 className="section-subtitle">مرحباً بكم في شركتنا</h3>
-                            <h2 className="section-title">
-                                الرائدون في مجال <span className="highlight">خدمات الإنقاذ</span>
-                            </h2>
-                            <div className="title-divider">
-                                <span className="star">★</span>
-                                <span className="star">★</span>
-                                <span className="star">★</span>
-                                <span className="star">★</span>
+            {/* Company Intro */}
+            <section className="intro-v2">
+                <div className="container-v2">
+                    <div className="intro-grid-v2">
+                        <div className="intro-visual-v2">
+                            <div className="main-img-wrapper-v2">
+                                <img src={counterImage} alt="ونش انقاذ" className="intro-main-img-v2" />
+                                <div className="experience-badge-v2">
+                                    <span className="exp-num">10+</span>
+                                    <span className="exp-text">عاماً من<br />التميز</span>
+                                </div>
                             </div>
-                            <p className="intro-description">
-                                نحن شركة رائدة في مجال خدمات إنقاذ السيارات والونش في مصر، نقدم خدماتنا على مدار الساعة
-                                طوال أيام الأسبوع. تأسست شركتنا بهدف تقديم حلول سريعة واحترافية لجميع مشاكل السيارات
-                                على الطرق المصرية.
+                        </div>
+                        <div className="intro-content-v2">
+                            <div className="section-header">
+                                <div className="header-meta">
+                                    <span className="dot"></span>
+                                    <h4 className="sub-title">تعرف علينا</h4>
+                                </div>
+                                <h2 className="main-title">
+                                    عن <span className="highlight">شركة إنقاذ مصر</span>
+                                </h2>
+                            </div>
+                            <p className="intro-desc-v2">
+                                نحن شركة رائدة في خدمات سحب وإنقاذ السيارات على الطرق، نعتمد على أحدث التكنولوجيا وأفضل الكوادر البشرية لنقدم لك تجربة خدمة فريدة وآمنة.
                             </p>
-                            <p className="intro-description">
-                                نفخر بامتلاكنا أحدث أسطول من الونشات والمعدات المتطورة، بالإضافة إلى فريق من الفنيين
-                                المدربين على أعلى مستوى. نغطي جميع محافظات مصر من الإسكندرية إلى أسوان، ومن القاهرة
-                                إلى البحر الأحمر، لنكون دائماً في خدمتكم أينما كنتم.
+                            <p className="intro-desc-v2">
+                                هدفنا هو تقديم حلول فورية وموثوقة لجميع أعطال الطرق، ملتزمون بأعلى معايير الجودة العالمية في مجالات الونش والإنقاذ، لنكون شريكك الدائم في كل رحلة.
                             </p>
-                            <p className="intro-description">
-                                التزامنا بالجودة والسرعة والأمان جعلنا الخيار الأول لآلاف العملاء في جميع أنحاء مصر.
-                                نسعى دائماً لتحسين خدماتنا وتطوير أساليب عملنا لنظل في طليعة شركات الإنقاذ في المنطقة.
+                            <div className="intro-features-v2">
+                                <div className="i-feature-v2">
+                                    <CheckCircle2 size={24} className="check-icon" />
+                                    <span>أكثر من 50,000 عملية إنقاذ ناجحة</span>
+                                </div>
+                                <div className="i-feature-v2">
+                                    <CheckCircle2 size={24} className="check-icon" />
+                                    <span>فريق مدرب على التعامل مع كافة أنواع السيارات</span>
+                                </div>
+                                <div className="i-feature-v2">
+                                    <CheckCircle2 size={24} className="check-icon" />
+                                    <span>أسطول أوناش مجهز بأحدث أدوات الرفع والسحب</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Mission & Vision */}
+            <section className="mission-vision-v2">
+                <div className="container-v2">
+                    <div className="mv-grid-v2">
+                        <div className="mv-card-v2">
+                            <div className="mv-icon-v2">
+                                <Target size={40} />
+                            </div>
+                            <h3 className="mv-title-v2">رؤيتنا</h3>
+                            <p className="mv-desc-v2">
+                                أن نصبح المرجع الأول والوحيد لخدمات طوارئ الطرق في مصر والشرق الأوسط من خلال التطوير المستمر لأسطولنا وتدريب كوادرنا.
                             </p>
                         </div>
-                        <div className="intro-image">
-                            <img src={counterImage} alt="About Us" />
-                            <div className="image-badge">
-                                <div className="badge-content">
-                                    <h3>10+</h3>
-                                    <p>سنوات من الخبرة</p>
-                                </div>
+                        <div className="mv-card-v2 featured">
+                            <div className="mv-icon-v2">
+                                <Rocket size={40} />
                             </div>
+                            <h3 className="mv-title-v2">مهمتنا</h3>
+                            <p className="mv-desc-v2">
+                                توفير الحماية والراحة لقائدي السيارات في جميع أنحاء الجمهورية من خلال استجابة فورية وخدمات احترافية تضمن سلامتهم وسلامة ممتلكاتهم.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Mission and Vision */}
-            <section className="mission-vision">
-                <div className="mv-container">
-                    <div className="mv-card">
-                        <div className="mv-icon">
-                            <Target size={70} color='var(--accent)' />
+            {/* Values Grid */}
+            <section className="values-v2">
+                <div className="container-v2">
+                    <div className="section-header centered">
+                        <div className="header-meta">
+                            <span className="dot"></span>
+                            <h4 className="sub-title">قيمنا الجوهرية</h4>
                         </div>
-                        <h3 className="mv-title">رؤيتنا</h3>
-                        <p className="mv-description">
-                            أن نكون الشركة الرائدة والأكثر موثوقية في مجال خدمات إنقاذ السيارات في مصر والشرق الأوسط،
-                            معروفين بالتميز والابتكار والتزامنا بسلامة وراحة عملائنا.
-                        </p>
+                        <h2 className="main-title">سر تميزنا واختيار <span className="highlight">العملاء لنا</span></h2>
                     </div>
-                    <div className="mv-card">
-                        <div className="mv-icon">
-                            <Rocket size={70} color='var(--accent)' />
-                        </div>
-                        <h3 className="mv-title">مهمتنا</h3>
-                        <p className="mv-description">
-                            تقديم خدمات إنقاذ سيارات عالية الجودة بأسرع وقت استجابة، مع الحفاظ على أعلى معايير
-                            الأمان والاحترافية. نسعى لتحويل كل موقف طارئ إلى تجربة إيجابية لعملائنا.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Our Values */}
-            <section className="our-values">
-                <div className="values-container">
-                    <div className="values-header">
-                        <h3 className="section-subtitle">ما يميزنا</h3>
-                        <h2 className="section-title">
-                            قيمنا <span className="highlight">ومبادئنا</span>
-                        </h2>
-                        <div className="about-title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                    <div className="values-grid">
-                        {values.map((value) => (
-                            <div key={value.id} className="value-card">
-                                <div className="value-icon">{value.icon}</div>
-                                <h3 className="value-title">{value.title}</h3>
-                                <p className="value-description">{value.description}</p>
+                    <div className="values-grid-v2">
+                        {values.map((v) => (
+                            <div key={v.id} className="value-card-v2">
+                                <div className="value-icon-v2">{v.icon}</div>
+                                <h3 className="value-title-v2">{v.title}</h3>
+                                <p className="value-desc-v2">{v.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Stats Section */}
-            <section className="about-stats">
-                <div className="about-stats-overlay"></div>
-                <div className="about-stats-container">
-                    <div className="about-stats-header">
-                        <h2 className="about-stats-title">إنجازاتنا بالأرقام</h2>
+            {/* Timeline History */}
+            <section className="history-v2">
+                <div className="container-v2">
+                    <div className="section-header centered">
+                        <div className="header-meta">
+                            <span className="dot"></span>
+                            <h4 className="sub-title">تاريخنا الحافل</h4>
+                        </div>
+                        <h2 className="main-title">مسيرة النجاح <span className="highlight">والتطور</span></h2>
                     </div>
-                    <div className="about-stats-grid">
-                        {stats.map((stat, index) => (
-                            <div key={index} className="about-stat-item">
-                                <h3 className="about-stat-number">{stat.number}</h3>
-                                <p className="about-stat-label">{stat.label}</p>
+                    <div className="timeline-v2">
+                        {timeline.map((item, idx) => (
+                            <div key={idx} className="timeline-item-v2">
+                                <div className="t-year-v2">{item.year}</div>
+                                <div className="t-content-v2">
+                                    <h4 className="t-title-v2">{item.title}</h4>
+                                    <p className="t-desc-v2">{item.desc}</p>
+                                </div>
+                                <div className="t-dot-v2"></div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Why Choose Us */}
-            <section className="why-choose-us">
-                <div className="wcu-container">
-                    <div className="wcu-header">
-                        <h3 className="section-subtitle">لماذا تختارنا؟</h3>
-                        <h2 className="section-title">
-                            ما يجعلنا <span className="highlight">الأفضل</span>
-                        </h2>
-                        <div className="about-title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                    <div className="features-grid">
-                        {features.map((feature, index) => (
-                            <div key={index} className="feature-card">
-                                <div className="feature-icon">
-                                    <img src={feature.icon} alt={feature.title} />
+            {/* Why Features Icons */}
+            <section className="why-v2">
+                <div className="container-v2">
+                    <div className="why-grid-v2">
+                        {whyFeatures.map((f, i) => (
+                            <div key={i} className="why-item-v2">
+                                <div className="why-img-box-v2">
+                                    <img src={f.icon} alt={f.title} />
                                 </div>
-                                <h3 className="feature-title">{feature.title}</h3>
-                                <p className="feature-description">{feature.description}</p>
+                                <h3 className="why-title-v2">{f.title}</h3>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Coverage */}
-            <section className="service-coverage">
-                <div className="coverage-container">
-                    <div className="coverage-header">
-                        <h3 className="section-subtitle">نخدمك في كل مكان</h3>
-                        <h2 className="section-title">
-                            مناطق <span className="highlight">تغطيتنا</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                        <p className="coverage-description">
-                            نفخر بتقديم خدماتنا في جميع أنحاء جمهورية مصر العربية. أينما كنت، نحن في خدمتك
-                            بأسرع وقت استجابة وأعلى مستوى من الاحترافية والأمان.
-                        </p>
-                    </div>
-                    <div className="areas-grid">
-                        {serviceAreas.map((area, index) => (
-                            <div key={index} className="area-badge">
-                                <span className="badge-icon">
-                                    <MapPin color='var(--accent)' />
-                                </span>
-                                <span className="badge-text">{area}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* How We Work */}
-            <section className="how-we-work">
-                <div className="work-container">
-                    <div className="work-header">
-                        <h3 className="section-subtitle">عملية بسيطة وسريعة</h3>
-                        <h2 className="section-title">
-                            كيف <span className="highlight">نعمل</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                    <div className="process-steps">
-                        {workProcess.map((process, index) => (
-                            <div key={index} className="process-card">
-                                <div className="process-number">{process.step}</div>
-                                <h3 className="process-title">{process.title}</h3>
-                                <p className="process-description">{process.description}</p>
-                                {index < workProcess.length - 1 && (
-                                    <div className="process-arrow">→</div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Quality Assurance */}
-            <section className="quality-assurance">
-                <div className="qa-container">
-                    <div className="qa-header">
-                        <h3 className="section-subtitle">معايير الجودة</h3>
-                        <h2 className="section-title">
-                            الجودة <span className="highlight">والاعتماد</span>
-                        </h2>
-                        <div className="title-divider">
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                    <div className="certifications-grid">
-                        {certifications.map((cert, index) => (
-                            <div key={index} className="cert-card">
-                                <div className="cert-icon">{cert.icon}</div>
-                                <h3 className="cert-title">{cert.title}</h3>
-                                <p className="cert-description">{cert.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Company History */}
-            <section className="company-history">
-                <div className="history-container">
-                    <div className="history-content">
-                        <div className="history-text">
-                            <h3 className="section-subtitle">قصة نجاحنا</h3>
-                            <h2 className="section-title">
-                                تاريخنا <span className="highlight">وإنجازاتنا</span>
-                            </h2>
-                            <div className="title-divider">
-                                <span className="star">★</span>
-                                <span className="star">★</span>
-                                <span className="star">★</span>
-                                <span className="star">★</span>
-                            </div>
-                            <div className="timeline">
-                                <div className="timeline-item">
-                                    <div className="timeline-year">2013</div>
-                                    <div className="timeline-content">
-                                        <h4>التأسيس</h4>
-                                        <p>بدأنا بـ 5 ونشات فقط في القاهرة بهدف تقديم خدمة إنقاذ احترافية</p>
-                                    </div>
-                                </div>
-                                <div className="timeline-item">
-                                    <div className="timeline-year">2016</div>
-                                    <div className="timeline-content">
-                                        <h4>التوسع</h4>
-                                        <p>توسعنا لنغطي 10 محافظات مع زيادة أسطولنا إلى 20 ونش</p>
-                                    </div>
-                                </div>
-                                <div className="timeline-item">
-                                    <div className="timeline-year">2019</div>
-                                    <div className="timeline-content">
-                                        <h4>التطوير</h4>
-                                        <p>أطلقنا خدمة 24/7 وأضفنا معدات حديثة ونظام GPS</p>
-                                    </div>
-                                </div>
-                                <div className="timeline-item">
-                                    <div className="timeline-year">2023</div>
-                                    <div className="timeline-content">
-                                        <h4>الريادة</h4>
-                                        <p>أصبحنا الشركة الرائدة مع 50+ ونش وتغطية كاملة لمصر</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Testimonial Quote */}
-            <section className="testimonial-quote">
-                <div className="quote-container">
-                    <div className="quote-icon-large">"</div>
-                    <p className="quote-text">
-                        تعاملت مع العديد من شركات الونش، لكن هذه الشركة هي الأفضل على الإطلاق.
-                        السرعة والاحترافية والأمان كلها في مكان واحد. أنصح الجميع بالتعامل معهم.
-                    </p>
-                    <div className="quote-author">
-                        <h4>أحمد محمود</h4>
-                        <p>رجل أعمال - القاهرة</p>
+            <section className="quote-v2">
+                <div className="container-v2">
+                    <div className="quote-box-v2">
+                        <div className="quote-icon-v2">"</div>
+                        <p className="quote-text-v2">
+                            أهم ما يميزنا ليس جودة ونش الإنقاذ فحسب، بل الأمان النفسي الذي يشعر به العميل عندما يعلم أننا في طريقنا إليه.. نحن لا ننقذ سيارة، نحن ننقذ رحلة إنسان.
+                        </p>
+                        <div className="quote-author-v2">
+                            <h4 className="author-name-v2">طاقم العمل</h4>
+                            <p className="author-pos-v2">شركة إنقاذ مصر</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="about-cta">
-                <div className="cta-content">
-                    <h2 className="cta-title">هل تحتاج إلى مساعدة؟</h2>
-                    <p className="cta-description">
-                        نحن هنا لخدمتك على مدار الساعة. اتصل بنا الآن وسنصل إليك في أسرع وقت ممكن.
-                    </p>
-                    <div className="cta-buttons">
-                        <a href={`tel:+2${phoneNumbers[0]}`} className="cta-button primary">
-                            اتصل بنا الآن
-                        </a>
-                        <a href="/contact" className="cta-button secondary">
-                            أرسل رسالة
-                        </a>
+            <section className="cta-v2">
+                <div className="container-v2">
+                    <div className="cta-card-v2">
+                        <div className="cta-content-v1">
+                            <h2 className="cta-title-v2">لا تدع الأعطال تعطل حياتك</h2>
+                            <p className="cta-desc-v2">نحن في خدمتك أينما كنت وفي أي وقت.. اتصل بنا الآن وسنصلك فوراً</p>
+                        </div>
+                        <div className="cta-actions-v2">
+                            <a href={`tel:+2${phoneNumbers[0]}`} className="btn-call-about">
+                                <Clock size={20} />
+                                اطلب النجدة الآن
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -4,7 +4,7 @@ import './Keywords.css';
 const Keywords = () => {
     const keywords = [
         'ونش انقاذ 6 اكتوبر',
-        'خدمات  إنقاذ السيارات',
+        'خدمات إنقاذ السيارات',
         'ونش إنقاذ 24 ساعة',
         'نقل سيارات معطلة',
         'ونش إنقاذ الجيزة',
@@ -36,24 +36,24 @@ const Keywords = () => {
     ];
 
     return (
-        <section className="keywords-section">
-            <div className="keywords-container">
-                <div className="keywords-header">
-                    <h3 className="keywords-subtitle">ابحث عن خدماتنا</h3>
-                    <h2 className="keywords-title">
-                        كلمات <span className="highlight">بحث ذات صلة</span>
-                    </h2>
-                    <div className="keywords-divider">
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
+        <section className="keywords-v2">
+            <div className="keywords-container-v2">
+                <div className="section-header centered">
+                    <div className="header-meta">
+                        <span className="dot"></span>
+                        <h4 className="sub-title">إمكانية الوصول</h4>
                     </div>
+                    <h2 className="main-title">
+                        كلمات <span className="highlight">بحث شائعة</span>
+                    </h2>
+                    <p className="section-description">
+                        تسهل هذه الكلمات العثور على خدماتنا بسرعة واحترافية في محركات البحث
+                    </p>
                 </div>
 
-                <div className="keywords-cloud">
+                <div className="keywords-cloud-v2">
                     {keywords.map((keyword, index) => (
-                        <span key={index} className="keyword-tag">
+                        <span key={index} className="keyword-tag-v2">
                             {keyword}
                         </span>
                     ))}
