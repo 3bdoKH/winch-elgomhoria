@@ -31,7 +31,7 @@ const Header = () => {
                         window.innerWidth < 992 && (
                             <div className="logo">
                                 <div className="logo-text">
-                                    <span className="logo-main">ونش انقاذ سيارات</span>
+                                    <span className="logo-main">ونش انقاذ الجمهورية</span>
                                 </div>
                             </div>
                         )
@@ -55,7 +55,7 @@ const Header = () => {
                             window.innerWidth > 992 && (
                                 <div className="logo">
                                     <div className="logo-text">
-                                        <span className="logo-main">ونش انقاذ سيارات</span>
+                                        <span className="logo-main">ونش انقاذ الجمهورية</span>
                                     </div>
                                 </div>
                             )

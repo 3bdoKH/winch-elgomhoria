@@ -93,13 +93,13 @@ const About = () => {
                             </div>
                         </div>
                         <div className="intro-content-v2">
-                            <div className="section-header">
+                            <div className="">
                                 <div className="header-meta">
                                     <span className="dot"></span>
                                     <h4 className="sub-title">تعرف علينا</h4>
                                 </div>
                                 <h2 className="main-title">
-                                    عن <span className="highlight">شركة إنقاذ مصر</span>
+                                    عن <span className="highlight">ونش الجمهورية</span>
                                 </h2>
                             </div>
                             <p className="intro-desc-v2">
@@ -111,7 +111,7 @@ const About = () => {
                             <div className="intro-features-v2">
                                 <div className="i-feature-v2">
                                     <CheckCircle2 size={24} className="check-icon" />
-                                    <span>أكثر من 50,000 عملية إنقاذ ناجحة</span>
+                                    <span>أكثر من 5000 عملية إنقاذ ناجحة</span>
                                 </div>
                                 <div className="i-feature-v2">
                                     <CheckCircle2 size={24} className="check-icon" />
@@ -226,7 +226,7 @@ const About = () => {
                         </p>
                         <div className="quote-author-v2">
                             <h4 className="author-name-v2">طاقم العمل</h4>
-                            <p className="author-pos-v2">شركة إنقاذ مصر</p>
+                            <p className="author-pos-v2">ونش الجمهورية</p>
                         </div>
                     </div>
                 </div>

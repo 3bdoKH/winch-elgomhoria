@@ -150,7 +150,7 @@ const ServicesPage = () => {
             {/* Main Services Grid */}
             <section className="main-services-v2">
                 <div className="container-v2">
-                    <div className="section-header centered">
+                    <div className="">
                         <div className="header-meta">
                             <span className="dot"></span>
                             <h4 className="sub-title">تنوع وتميز</h4>

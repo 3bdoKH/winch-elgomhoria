@@ -69,7 +69,7 @@ const Areas = () => {
             {/* Coverage Overview */}
             <section className="coverage-overview-v2">
                 <div className="container-v2">
-                    <div className="section-header centered">
+                    <div className="">
                         <div className="header-meta">
                             <span className="dot"></span>
                             <h4 className="sub-title">تغطية وطنية</h4>

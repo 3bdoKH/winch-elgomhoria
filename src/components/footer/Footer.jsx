@@ -54,7 +54,7 @@ const Footer = () => {
                     {/* Company Info */}
                     <div className="footer-column">
                         <div className="footer-logo">
-                            <h2>خدمات <span className="highlight">الونش</span></h2>
+                            <h2>خدمات <span className="highlight">ونش الجمهورية</span></h2>
                             <div className="logo-subtitle">خدمات الطوارئ 24/7</div>
                         </div>
                         <p className="footer-description">
@@ -135,7 +135,7 @@ const Footer = () => {
             <div className="footer-bottom">
                 <div className="footer-container">
                     <p className="copyright">
-                        © {new Date().getFullYear()} خدمات الونش - جميع الحقوق محفوظة
+                        © {new Date().getFullYear()} خدمات ونش الجمهورية - جميع الحقوق محفوظة
                     </p>
                 </div>
             </div>

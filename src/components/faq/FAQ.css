@@ -11,7 +11,7 @@
     margin: 0 auto;
 }
 
-.faq-grid {
+.faq-grid-section {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 100px;
@@ -173,7 +173,7 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
-    .faq-grid {
+    .faq-grid-section {
         gap: 60px;
     }
 }
@@ -183,7 +183,7 @@
         padding: 80px 20px;
     }
 
-    .faq-grid {
+    .faq-grid-section {
         grid-template-columns: 1fr;
         gap: 60px;
     }

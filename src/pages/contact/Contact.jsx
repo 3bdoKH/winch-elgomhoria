@@ -112,7 +112,7 @@ const Contact = () => {
                     <div className="contact-grid-v2">
                         {/* Contact Form Container */}
                         <div className="contact-form-container-v2">
-                            <div className="section-header">
+                            <div className="">
                                 <div className="header-meta">
                                     <span className="dot"></span>
                                     <h4 className="sub-title">راسلنا</h4>

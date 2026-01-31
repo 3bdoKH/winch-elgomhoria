@@ -13,7 +13,7 @@ const FAQ = () => {
     return (
         <section className="faq-v2">
             <div className="faq-container">
-                <div className="faq-grid">
+                <div className="faq-grid-section">
                     {/* Left Side: Info & CTA */}
                     <div className="faq-info-panel">
                         <div className="header-meta">

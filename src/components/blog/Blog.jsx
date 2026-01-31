@@ -45,7 +45,7 @@ const Blog = () => {
     return (
         <section className="blog-v2">
             <div className="blog-container">
-                <div className="section-header centered">
+                <div className="">
                     <div className="header-meta">
                         <span className="dot"></span>
                         <h4 className="sub-title">آخر الأخبار</h4>

@@ -50,7 +50,7 @@ const WhatWeOffer = () => {
                 </div>
 
                 <div className="offer-content">
-                    <div className="section-header">
+                    <div className="section-header-offer">
                         <h4 className="sub-title">لماذا نحن الأفضل؟</h4>
                         <h2 className="main-title">
                             نقدم خدمات <span className="highlight">استثنائية</span>

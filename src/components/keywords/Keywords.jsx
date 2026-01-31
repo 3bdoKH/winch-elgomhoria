@@ -38,7 +38,7 @@ const Keywords = () => {
     return (
         <section className="keywords-v2">
             <div className="keywords-container-v2">
-                <div className="section-header centered">
+                <div className="">
                     <div className="header-meta">
                         <span className="dot"></span>
                         <h4 className="sub-title">إمكانية الوصول</h4>

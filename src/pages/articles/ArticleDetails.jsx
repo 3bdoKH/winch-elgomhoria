@@ -69,7 +69,7 @@ const ArticleDetails = () => {
             </Helmet>
 
             {/* Article Hero */}
-            <header className="article-hero" style={article.image ? { backgroundImage: `url(${article.image})` } : {}}>
+            <header className="article-hero" style={article.image ? { backgroundImage: `url(https://winchenqaz.com${article.image})` } : {}}>
                 <div className="article-hero-overlay"></div>
                 <div className="article-hero-container">
                     <div className="article-hero-content">
@@ -126,7 +126,7 @@ const ArticleDetails = () => {
                                     {allArticles.map(item => (
                                         <Link key={item.id} to={`/articles/${item.slug}`} className="mini-card">
                                             <div className="mini-thumb">
-                                                <img src={item.image} alt={item.title} />
+                                                <img src={`https://winchenqaz.com${item.image}`} alt={item.title} />
                                             </div>
                                             <div className="mini-content">
                                                 <h4>{item.title}</h4>
@@ -162,7 +162,7 @@ const ArticleDetails = () => {
                         {allArticles.slice(0, 3).map(item => (
                             <Link key={item.id} to={`/articles/${item.slug}`} className="bottom-article-card">
                                 <div className="card-media">
-                                    <img src={item.image} alt={item.title} />
+                                    <img src={`https://winchenqaz.com${item.image}`} alt={item.title} />
                                 </div>
                                 <div className="card-details">
                                     <h3>{item.title}</h3>

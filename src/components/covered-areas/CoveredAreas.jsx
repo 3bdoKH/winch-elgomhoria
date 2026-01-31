@@ -10,7 +10,7 @@ const CoveredAreas = () => {
     return (
         <section className="covered-areas-v2">
             <div className="covered-areas-container">
-                <div className="section-header centered">
+                <div className="">
                     <div className="header-meta">
                         <span className="dot"></span>
                         <h4 className="sub-title">تغطية شاملة</h4>
