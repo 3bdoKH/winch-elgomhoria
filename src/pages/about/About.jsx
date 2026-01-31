@@ -13,7 +13,6 @@ import {
     Headset,
     Target,
     Rocket,
-    MapPin,
     ChevronLeft,
     Clock,
     CheckCircle2

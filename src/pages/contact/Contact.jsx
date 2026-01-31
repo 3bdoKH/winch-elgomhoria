@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import './Contact.css';
 import heroBackground from '../../media/hero-background.png';
 import contactImage from '../../media/contact.jpg';
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare, PhoneCall } from 'lucide-react';
+import { MapPin, Mail, Clock, Send, MessageSquare, PhoneCall } from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';
 
 const Contact = () => {

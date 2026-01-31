@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './Areas.css';
 import heroBackground from '../../media/hero-background.png';
-import contactImage from '../../media/contact.jpg';
 import { areas } from '../../data/areas';
 import { MapPin, Search, Filter, Phone, ArrowRight, ShieldCheck, Zap, Navigation } from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';

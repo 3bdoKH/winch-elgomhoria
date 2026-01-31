@@ -5,8 +5,7 @@ import './ArticleDetails.css';
 import { articlesAPI } from '../../services/api';
 import { phoneNumbers } from '../../data/phoneNumbers';
 import {
-    Calendar, User, Clock, Share2, MessageCircle, Phone,
-    ChevronLeft, ChevronRight, Tag, Bookmark, Facebook,
+    Calendar, Clock, Phone, Facebook,
     Twitter, Link as LinkIcon, ArrowRight
 } from 'lucide-react';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Phone, Mail, MessageSquare, Send, MapPin, Clock8, ShieldCheck } from 'lucide-react';
+import { User, Phone, MessageSquare, Send, MapPin, Clock8, ShieldCheck } from 'lucide-react';
 import './CallToAction.css';
 import { phoneNumbers } from '../../data/phoneNumbers';
 
