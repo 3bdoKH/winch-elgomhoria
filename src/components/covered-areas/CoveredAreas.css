@@ -1,0 +1,232 @@
+.covered-areas {
+    padding: 100px 20px;
+    background: #f8f9fa;
+    position: relative;
+}
+
+.covered-areas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(255, 193, 7, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.covered-areas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.covered-areas-header {
+    text-align: center;
+    margin-bottom: 60px;
+    direction: rtl;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2B2B2B;
+    margin-bottom: 20px;
+}
+
+.section-title .highlight {
+    color: var(--accent);
+}
+
+.title-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0 30px;
+}
+
+.title-divider .star {
+    color: var(--accent);
+    font-size: 1.2rem;
+    animation: starPulse 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+.title-divider .star:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.title-divider .star:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.title-divider .star:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.title-divider .star:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes starPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+}
+
+.covered-areas-description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.area-card {
+    background: #FFFFFF;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    direction: rtl;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    /* For the anchor tag */
+    display: block;
+    /* Ensure it behaves like a block */
+}
+
+.area-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(255, 193, 7, 0.2);
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+.area-card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.area-card:hover .area-card-icon {
+    background: rgba(255, 193, 7, 0.2);
+    transform: scale(1.1);
+}
+
+.area-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2B2B2B;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.area-card:hover .area-card-title {
+    color: var(--accent);
+}
+
+.area-card-count {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.area-card-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.area-card:hover .area-card-link {
+    background: var(--accent);
+    color: var(--light-text);
+    transform: translateY(-2px);
+}
+
+.covered-areas-cta {
+    text-align: center;
+}
+
+.view-all-areas-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--accent);
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.view-all-areas-btn:hover {
+    background: #ffb300;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .covered-areas {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .areas-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .area-card {
+        padding: 30px 20px;
+    }
+}

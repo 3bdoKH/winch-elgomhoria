@@ -1,0 +1,669 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  direction: rtl;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.7) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px 20px;
+}
+
+.hero-text {
+  max-width: 900px;
+  margin-bottom: auto;
+  padding-top: 8%;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0 0 25px 0;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-title-highlight {
+  color: var(--accent);
+  display: block;
+  margin-top: 10px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: var(--light-text);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Discount Badge */
+.discount-badge {
+  position: absolute;
+  top: 110px;
+  left: -170px;
+  z-index: 10;
+}
+
+
+.discount-circle {
+  width: 500px;
+  height: 100px;
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(255, 193, 7, 0.6);
+  border: 4px solid #FFFFFF;
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.discount-percent {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--light-text);
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.discount-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light-text);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  transform: translateY(5px);
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 3px solid #ffffff;
+  border-radius: 15px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.wheel {
+  width: 6px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(15px);
+  }
+}
+
+.scroll-indicator p {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+}
+
+.banner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+}
+
+.banner-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.banner-item:nth-child(2) {
+  position: relative;
+}
+
+.banner-item:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -27px;
+  width: 100%;
+  height: 100%;
+  transform: skewX(-26deg);
+  padding: 0 29px;
+  background: black;
+  z-index: -1;
+}
+
+.banner-item:nth-child(2) a {
+  color: var(--accent);
+}
+
+.banner-icon {
+  font-size: 35px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  flex-shrink: 0;
+  color: var(--light-text);
+}
+
+.banner-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.banner-label {
+  color: var(--light-text);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.banner-highlight {
+  color: var(--light-text);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.phone-number {
+  font-size: 36px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.phone-number:hover {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+
+/* Large Desktops */
+@media (max-width: 1400px) {
+  .hero-title {
+    font-size: 52px;
+  }
+
+  .hero-subtitle {
+    font-size: 19px;
+  }
+}
+
+/* Laptops and smaller desktops */
+@media (max-width: 1200px) {
+  .hero-content {
+    padding: 110px 20px 20px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    max-width: 650px;
+  }
+
+  .banner-container {
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .phone-number {
+    font-size: 32px;
+  }
+
+  .banner-icon {
+    font-size: 32px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero-content {
+    height: calc(100% - 90px);
+    padding: 100px 20px 15px;
+  }
+
+  .hero-text {
+    padding-top: 5%;
+  }
+
+  .hero-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    max-width: 600px;
+  }
+
+  .hero-banner {
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+    padding: 35px 15px 15px;
+  }
+
+  .banner-container {
+    gap: 25px;
+  }
+
+  .phone-number {
+    font-size: 28px;
+    letter-spacing: 1.5px;
+  }
+
+  .banner-highlight {
+    font-size: 20px;
+  }
+
+  .banner-label {
+    font-size: 15px;
+  }
+
+  .banner-icon {
+    font-size: 30px;
+  }
+
+  .scroll-indicator {
+    margin-bottom: 30px;
+  }
+}
+
+/* Mobile Landscape and smaller tablets */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-content {
+    height: calc(100% - 110px);
+    padding: 90px 15px 15px;
+  }
+
+  .hero-text {
+    padding-top: 3%;
+  }
+
+  .hero-title {
+    font-size: 34px;
+    margin-bottom: 18px;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  .hero-banner {
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    padding: 30px 15px 15px;
+  }
+
+  .banner-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .banner-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .banner-text {
+    justify-content: center;
+  }
+
+  .phone-number {
+    font-size: 26px;
+  }
+
+  .banner-highlight {
+    font-size: 19px;
+  }
+
+  .banner-label {
+    font-size: 14px;
+  }
+
+  .banner-icon {
+    font-size: 28px;
+  }
+
+  .mouse {
+    width: 26px;
+    height: 44px;
+    border: 2.5px solid #ffffff;
+  }
+
+  .wheel {
+    width: 5px;
+    height: 9px;
+  }
+
+  .scroll-indicator p {
+    font-size: 13px;
+  }
+
+}
+
+/* Mobile Portrait */
+@media (max-width: 576px) {
+  .hero {
+    min-height: 450px;
+  }
+
+  .hero-background img {
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    height: calc(100% - 120px);
+    padding: 80px 12px 12px;
+  }
+
+  .hero-text {
+    padding-top: 2%;
+    margin-bottom: 0;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    max-width: 400px;
+  }
+
+  .hero-banner {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    padding: 25px 12px 12px;
+  }
+
+  .banner-container {
+    gap: 18px;
+  }
+
+  .banner-item {
+    gap: 8px;
+  }
+
+  .phone-number {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .banner-highlight {
+    font-size: 17px;
+  }
+
+  .banner-label {
+    font-size: 13px;
+  }
+
+  .banner-icon {
+    font-size: 26px;
+  }
+
+  .scroll-indicator {
+    margin-bottom: 25px;
+    margin-top: 40px;
+    gap: 8px;
+  }
+
+  .mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid #ffffff;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+  }
+
+  .scroll-indicator p {
+    font-size: 12px;
+  }
+
+  .discount-badge {
+    top: 80px;
+    left: -100px;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .hero-content {
+    height: calc(100% - 130px);
+    padding: 75px 10px 10px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    max-width: 350px;
+  }
+
+  .hero-banner {
+    clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+    padding: 22px 10px 10px;
+  }
+
+  .banner-container {
+    gap: 15px;
+  }
+
+  .phone-number {
+    font-size: 20px;
+  }
+
+  .banner-highlight {
+    font-size: 16px;
+  }
+
+  .banner-label {
+    font-size: 12px;
+  }
+
+  .banner-icon {
+    font-size: 24px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero-content {
+    padding: 70px 8px 8px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    max-width: 300px;
+  }
+
+  .hero-banner {
+    padding: 20px 8px 8px;
+  }
+
+  .phone-number {
+    font-size: 18px;
+  }
+
+  .banner-highlight {
+    font-size: 15px;
+  }
+
+  .banner-label {
+    font-size: 11px;
+  }
+
+  .banner-icon {
+    font-size: 22px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    padding-top: 80px;
+    justify-content: flex-start;
+  }
+
+  .hero-text {
+    padding-top: 2%;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .hero-banner {
+    position: relative;
+    clip-path: none;
+    padding: 15px 10px;
+  }
+
+  .banner-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .banner-item {
+    flex-direction: row;
+    gap: 8px;
+  }
+}

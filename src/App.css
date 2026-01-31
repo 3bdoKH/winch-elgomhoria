@@ -1,0 +1,59 @@
+:root {
+  --accent: #ff0000;
+  --dark-text: #2B2B2B;
+  --light-text: #fff;
+  --gray-text: #666;
+  --light-overlay: linear-gradient(135deg, rgba(58, 143, 253, 0.85) 0%, rgba(170, 193, 255, 0.85) 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Cairo', 'Tajawal', 'Arial', sans-serif;
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Prevent horizontal scroll on all elements */
+section,
+div,
+header,
+nav {
+  max-width: 100%;
+}
+
+/* Mobile viewport fix */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

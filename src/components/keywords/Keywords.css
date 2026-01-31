@@ -1,0 +1,123 @@
+.keywords-section {
+    padding: 60px 20px;
+    background: #f8f8f8;
+}
+
+.keywords-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.keywords-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.keywords-subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.keywords-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2B2B2B;
+    margin-bottom: 20px;
+    direction: rtl;
+}
+
+.keywords-title .highlight {
+    color: var(--accent);
+}
+
+.keywords-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.keywords-divider .star {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+/* Keywords Cloud */
+.keywords-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    direction: rtl;
+}
+
+.keyword-tag {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #FFFFFF;
+    color: #2B2B2B;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.keyword-tag:hover {
+    background: var(--accent);
+    color: #FFFFFF;
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(253, 185, 19, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .keywords-section {
+        padding: 40px 20px;
+    }
+
+    .keywords-title {
+        font-size: 2rem;
+    }
+
+    .keywords-cloud {
+        gap: 10px;
+    }
+
+    .keyword-tag {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .keywords-section {
+        padding: 30px 15px;
+    }
+
+    .keywords-title {
+        font-size: 1.7rem;
+    }
+
+    .keywords-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .keywords-cloud {
+        gap: 8px;
+    }
+
+    .keyword-tag {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+}
