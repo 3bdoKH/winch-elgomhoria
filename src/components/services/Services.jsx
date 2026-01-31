@@ -1,41 +1,46 @@
 import React from 'react';
+import { Truck, Drill, Fuel, Battery, Settings2, ShieldCheck } from 'lucide-react';
 import './Services.css';
-import tires from "../../media/tires.png"
-import towedCar from "../../media/towed-car.png"
-import tools from "../../media/tools.png"
-import fuel from "../../media/fuel.png"
-import battery from "../../media/battery.png"
+import { useNavigate } from 'react-router-dom';
+
 const Services = () => {
+    const navigate = useNavigate();
     const servicesData = [
         {
             id: 'rescue',
-            icon: towedCar,
+            icon: <Truck className="service-icon" />,
             title: 'إنقاذ السيارات',
-            description: 'نقدم جميع خدمات إنقاذ السيارات بأسرع وأفضل خدمة إنقاذ للسيارات في مصر بشكل غير مسبوق ..'
+            description: 'نقدم جميع خدمات إنقاذ السيارات بأسرع وأفضل خدمة إنقاذ للسيارات في مصر بشكل غير مسبوق للتعامل مع جميع الحالات.'
         },
         {
             id: 'equipment',
-            icon: tools,
+            icon: <Drill className="service-icon" />,
             title: 'نقل المعدات',
-            description: 'نقدم جميع خدمات نقل المعدات " سيارات نقل ، كرفانات ، معدات وكراكات ، فشلات " وغيرها الكثير ..'
+            description: 'نقدم جميع خدمات نقل المعدات الثقيلة، الكرفانات، والمعدات الإنشائية بكفاءة عالية وأمان تام.'
         },
         {
             id: 'fuel',
-            icon: fuel,
-            title: 'التزود بالوقود',
-            description: 'اذا نفذ وقود سيارتك فلا داعي للقلق، فنحن نقدم خدمة التزود بالوقود في الطريق ، فريق أوتوبات جاهز لتزويدكم بالوقود ..'
+            icon: <Fuel className="service-icon" />,
+            title: 'تزويد الوقود',
+            description: 'إذا نفذ وقود سيارتك فلا داعي للقلق، نصل إليك أينما كنت لنزودك بالوقود ونعيدك للطريق فوراً.'
         },
         {
             id: 'battery',
-            icon: battery,
-            title: 'وصلة بطارية',
-            description: 'نقدم جميع خدمات أعطال البطاريات والتي تحتاج الي وصلة . فريق ونش انقاذ أوتوبات جاهز وعلي أتم الاستعداد لمساعدتكم ..'
+            icon: <Battery className="service-icon" />,
+            title: 'خدمات البطارية',
+            description: 'فريقنا جاهز ومستعد لمساعدتكم في أعطال البطاريات التي تحتاج إلى وصلة شحن أو استبدال فوري.'
         },
         {
             id: 'tires',
-            icon: tires,
-            title: 'تغيير الاطارات',
-            description: 'اذا حصل ظرف طارئ في الطريق وقد احتجت الي تغيير او استبدال احدي اطارات سيارتك فنحن نقدم خدمة تغيير / استبدال الاطارات في الطريق ..'
+            icon: <Settings2 className="service-icon" />,
+            title: 'تغيير الإطارات',
+            description: 'نقدم خدمة تغيير واستبدال الإطارات في الطريق في حالات الطوارئ، نصلك بمعداتنا المتكاملة.'
+        },
+        {
+            id: 'security',
+            icon: <ShieldCheck className="service-icon" />,
+            title: 'أمان تام',
+            description: 'نضمن لك سلامة سيارتك أثناء عملية الإنقاذ والنقل، حيث نستخدم أحدث الأساليب والمعدات العالمية.'
         }
     ];
 
@@ -43,26 +48,37 @@ const Services = () => {
         <section className="services-section">
             <div className="services-container">
                 <div className="services-header">
-                    <h3 className="services-subtitle">مساعدة طوارئ على الطريق</h3>
-                    <h2 className="services-title">
-                        خدماتنا <span className="highlight">المميزة</span>
-                    </h2>
-                    <div className="services-divider">
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
-                        <span className="star">★</span>
+                    <div className="header-meta">
+                        <span className="dot"></span>
+                        <h4 className="services-subtitle">مساعدة احترافية على الطريق</h4>
                     </div>
+                    <h2 className="services-title">
+                        خدماتنا <span className="highlight">الشاملة</span>
+                    </h2>
+                    <p className="services-description-main">
+                        نحن فخورون بتقديم مجموعة متنوعة من خدمات المساعدة على الطريق،
+                        مصممة خصيصاً لتلبية احتياجاتك في أوقات الطوارئ.
+                    </p>
                 </div>
 
-                <div className="home-services-grid">
+                <div className="services-grid">
                     {servicesData.map((service) => (
-                        <div key={service.id} className="service-card">
-                            <div className="service-icon-wrapper">
-                                <div className="service-icon"><img src={service.icon} alt={service.title} /></div>
+                        <div key={service.id} className="service-card"
+                            onClick={() => navigate(`/services`)}
+                        >
+                            <div className="service-icon-container">
+                                {service.icon}
+                                <div className="icon-bg"></div>
                             </div>
-                            <h3 className="service-title">{service.title}</h3>
-                            <p className="service-description">{service.description}</p>
+                            <div className="service-info">
+                                <h3 className="service-card-title">{service.title}</h3>
+                                <div className="card-divider"></div>
+                                <p className="service-card-description">{service.description}</p>
+                            </div>
+                            <div className="card-footer">
+                                <span className="learn-more">طلب الخدمة الآن</span>
+                                <div className="arrow-icon">←</div>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -72,4 +88,3 @@ const Services = () => {
 };
 
 export default Services;
-
