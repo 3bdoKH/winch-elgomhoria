@@ -16,7 +16,7 @@ fs.writeFileSync(tempFilePath, jsContent);
 const { areas } = require('./temp_areas');
 
 // Base URL
-const BASE_URL = 'https://winchenqaz.com';
+const BASE_URL = 'https://winchelgomhoria.com';
 
 // Start XML
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
