@@ -84,7 +84,7 @@ const ArticleDetails = () => {
                 <div className="article-container">
                     <div className="article-grid">
                         <article className="article-body">
-                            <div className="content-rich" dangerouslySetInnerHTML={{ __html: article.content }}></div>
+                            <div className="content-rich" dangerouslySetInnerHTML={{ __html: article.contentarticle.content.replaceAll('01055557235', '01035625283').replaceAll('01553877630', '01035625283') }}></div>
 
                             <div className="article-share-footer">
                                 <div className="share-box">
