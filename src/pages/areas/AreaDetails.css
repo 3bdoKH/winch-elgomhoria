@@ -1185,3 +1185,358 @@
         font-size: 1.2rem;
     }
 }
+
+/* ==============================
+   Intro Section - Two Column Layout
+   ============================== */
+.intro-container--with-image {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    text-align: right;
+    max-width: 1200px;
+}
+
+.intro-container--with-image .intro-content {
+    flex: 1;
+}
+
+.intro-side-image-col {
+    flex: 0 0 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.intro-side-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.intro-side-image-col:hover .intro-side-image {
+    transform: scale(1.05);
+}
+
+/* Intro CTA bar */
+.intro-cta-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.intro-phone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.intro-phone-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(253, 185, 19, 0.35);
+}
+
+.intro-badge {
+    background: rgba(253, 185, 19, 0.12);
+    border: 1.5px solid rgba(253, 185, 19, 0.4);
+    color: #6b4e00;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .intro-container--with-image {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .intro-cta-bar {
+        justify-content: center;
+    }
+    .intro-side-image-col {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* ==============================
+   Coverage Phone Badge
+   ============================== */
+.coverage-image {
+    position: relative;
+}
+
+.coverage-phone-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: var(--accent);
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+.coverage-phone-badge a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==============================
+   Photo Gallery Section
+   ============================== */
+.area-gallery {
+    padding: 100px 20px;
+    background: #f8f8f8;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+    direction: rtl;
+}
+
+.gallery-subtitle {
+    color: #666;
+    font-size: 1.05rem;
+    margin-top: 10px;
+}
+
+.phone-link-inline {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.phone-link-inline:hover {
+    text-decoration: underline;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 12px;
+}
+
+.gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-wide {
+    grid-column: span 2;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    direction: rtl;
+    text-align: right;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+    }
+    .gallery-large {
+        grid-column: span 2;
+    }
+    .gallery-wide {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 140px;
+    }
+}
+
+/* ==============================
+   Testimonials Strip
+   ============================== */
+.testimonials-strip {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #2B2B2B 0%, #1A1A1A 100%);
+    overflow: hidden;
+}
+
+.testimonials-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    direction: rtl;
+}
+
+.testimonial-strip-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 24px 20px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-strip-card:hover {
+    background: rgba(253, 185, 19, 0.1);
+    border-color: rgba(253, 185, 19, 0.4);
+    transform: translateY(-4px);
+}
+
+.ts-stars {
+    color: #ffc107;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.ts-text {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+.ts-author {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .testimonials-strip-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-strip-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   SEO Section Phone Links & Final CTA
+   ============================== */
+.seo-phone-link {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.seo-phone-link:hover {
+    text-decoration: underline;
+}
+
+.seo-final-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    direction: rtl;
+}
+
+.seo-cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.seo-cta-phone:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(253, 185, 19, 0.35);
+}
+
+.seo-cta-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.seo-cta-whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(37, 211, 102, 0.35);
+}

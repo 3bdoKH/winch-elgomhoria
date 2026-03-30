@@ -6,6 +6,16 @@ import contactImage from '../../media/contact.jpg';
 import { areas } from '../../data/areas';
 import { Car, Wrench, MapPin, Phone, MessageCircle, PhoneCall, Clock, CheckCircle, AlertTriangle, HelpCircle, ChevronDown, ChevronUp, Star } from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';
+import article1 from '../../media/articles/1.jpg';
+import article2 from '../../media/articles/2.jpg';
+import article3 from '../../media/articles/3.jpg';
+import article4 from '../../media/articles/4.jpg';
+import article5 from '../../media/articles/5.jpg';
+import article6 from '../../media/articles/6.jpg';
+import article7 from '../../media/articles/7.jpg';
+import article8 from '../../media/articles/8.jpg';
+import article9 from '../../media/articles/9.jpg';
+import article10 from '../../media/articles/10.jpg';
 const AreaDetails = () => {
     const { areaName } = useParams();
     const navigate = useNavigate();
@@ -51,8 +61,8 @@ const AreaDetails = () => {
         const areaDisplayName = isMainArea ? mainArea.name : subarea;
 
         return {
-            title: `أفضل ونش إنقاذ في ${areaDisplayName} | خصم 50%`,
-            intro: `هل تعطلت سيارتك في ${areaDisplayName}؟ لا تقلق، نحن هنا لمساعدتك فوراً. نعدك بتجربة إنقاذ خالية من التوتر مع فريق محترف يعرف كل شارع في ${areaDisplayName}. خدماتنا متاحة 24 ساعة لضمان عودتك لطريقك بأمان وسرعة.اتصل بنا الآن ${phoneNumbers[0]} أو ${phoneNumbers[1]} ! `,
+            title: `ونش إنقاذ سيارات في ${areaDisplayName} | أسرع استجابة وأفضل أسعار - خصم 50%`,
+            intro: `هل تعطلت سيارتك في ${areaDisplayName}؟ لا تقلق — نحن هنا لمساعدتك فوراً على مدار الساعة. نعدك بتجربة إنقاذ خالية من التوتر مع فريق محترف يعرف كل شارع في ${areaDisplayName}. خدماتنا متاحة 24 ساعة / 7 أيام لضمان عودتك لطريقك بأمان وسرعة فائقة. اتصل بنا الآن على ${phoneNumbers[0]} للحصول على مساعدة فورية!`,
             whyUs: [
                 {
                     icon: <Clock size={50} color='var(--accent)' />,
@@ -99,30 +109,32 @@ const AreaDetails = () => {
             processSteps: [
                 {
                     icon: <PhoneCall size={30} />,
-                    title: 'اتصل بنا',
-                    desc: 'اتصل برقم الطوارئ أو تواصل عبر واتساب.'
+                    title: 'اتصل بنا الآن',
+                    desc: `اتصل فوراً على ${phoneNumbers[0]} أو راسلنا عبر واتساب، متاح 24/7.`
                 },
                 {
                     icon: <MapPin size={30} />,
-                    title: 'شارك موقعك',
-                    desc: 'أرسل موقعك وسنتحرك إليك فوراً.'
+                    title: 'شارك موقعك بدقة',
+                    desc: `أرسل رابط موقع GPS وسنتحرك إليك في ${areaDisplayName} فوراً.`
                 },
                 {
                     icon: <Clock size={30} />,
                     title: 'انتظر بأمان',
-                    desc: 'سيصلك الونش خلال دقائق معدودة.'
+                    desc: `سيصلك ونشنا خلال 15-20 دقيقة فقط في معظم مناطق ${areaDisplayName}.`
                 },
                 {
                     icon: <CheckCircle size={30} />,
                     title: 'إتمام الخدمة',
-                    desc: 'نقل سيارتك بأمان لأي وجهة تختارها.'
+                    desc: 'نقل سيارتك بأمان تام لأي وجهة داخل مصر.'
                 }
             ],
             safetyTips: [
-                "تأكد من ركن السيارة على جانب الطريق بعيداً عن حركة المرور قدر الإمكان.",
-                "قم بتشغيل أضواء الانتظار (الفلشر) لتنبيه السائقين الآخرين.",
+                `تأكد من ركن السيارة على جانب الطريق بعيداً عن حركة المرور، ثم اتصل بنا فوراً على ${phoneNumbers[0]}.`,
+                "قم بتشغيل أضواء الانتظار (الفلشر) لتنبيه السائقين الآخرين بوجودك على الطريق.",
                 "إذا كنت على طريق سريع، ابق داخل السيارة وأغلق الأبواب، أو قف خلف الحاجز الخرساني.",
-                "لا تقبل مساعدة من سيارات غير معروفة وتأكد من هوية الونش عند وصوله."
+                "لا تقبل مساعدة من سيارات غير معروفة وتأكد من هوية الونش عند وصوله.",
+                `احتفظ بأرقامنا في هاتفك: ${phoneNumbers[0]} للطوارئ على الطريق.`,
+                "ضع مثلث التحذير خلف السيارة بمسافة 30 متراً على الطرق السريعة."
             ],
             faqs: [
                 {
@@ -143,8 +155,8 @@ const AreaDetails = () => {
                 }
             ],
             coverage: isMainArea
-                ? `نغطي ${mainArea.areas.length} منطقة في ${mainArea.name} وجميع الشوارع والطرق الرئيسية والفرعية.`
-                : `نخدم ${subarea} كجزء من تغطيتنا الشاملة لمحافظة ${mainArea.name}.`,
+                ? `نغطي ${mainArea.areas.length} منطقة في ${mainArea.name} وجميع الشوارع والطرق الرئيسية والفرعية. للطوارئ اتصل على ${phoneNumbers[0]}.`
+                : `نخدم ${subarea} كجزء من تغطيتنا الشاملة لمحافظة ${mainArea.name}. للطوارئ اتصل على ${phoneNumbers[0]}.`,
             nearby: isMainArea
                 ? mainArea.areas.slice(0, 8)
                 : mainArea.areas.filter(a => a !== subarea).slice(0, 7)
@@ -192,10 +204,26 @@ const AreaDetails = () => {
 
             {/* Introduction */}
             <section className="area-intro">
-                <div className="intro-container">
+                <div className="intro-container intro-container--with-image">
                     <div className="intro-content">
                         <h2 className="intro-title">{content.title}</h2>
                         <p className="intro-text">{content.intro}</p>
+                        <div className="intro-cta-bar">
+                            <a href={`tel:+2${phoneNumbers[0]}`} className="intro-phone-link">
+                                <Phone size={18} />
+                                <span>اتصل الآن: <strong>{phoneNumbers[0]}</strong></span>
+                            </a>
+                            <span className="intro-badge">⚡ وصول خلال 15-20 دقيقة</span>
+                            <span className="intro-badge">✅ خدمة 24/7</span>
+                        </div>
+                    </div>
+                    <div className="intro-side-image-col">
+                        <img
+                            src={article2}
+                            alt={`ونش إنقاذ سيارات في ${displayName}`}
+                            className="intro-side-image"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
             </section>
@@ -316,7 +344,60 @@ const AreaDetails = () => {
                             <a href="/contact" className="coverage-cta">احجز الخدمة الآن</a>
                         </div>
                         <div className="coverage-image">
-                            <img src={contactImage} alt={displayName} />
+                            <img src={contactImage} alt={`ونش إنقاذ سيارات في ${displayName} - فريق احترافي`} loading="lazy" />
+                            <div className="coverage-phone-badge">
+                                <Phone size={16} />
+                                <a href={`tel:+2${phoneNumbers[0]}`}>{phoneNumbers[0]}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Photo Gallery Section */}
+            <section className="area-gallery">
+                <div className="gallery-container">
+                    <div className="gallery-header">
+                        <h3 className="section-subtitle">من الميدان</h3>
+                        <h2 className="section-title">صور من خدماتنا في <span className="highlight">{displayName}</span></h2>
+                        <p className="gallery-subtitle">فريقنا جاهز على مدار الساعة — اتصل على <a href={`tel:+2${phoneNumbers[0]}`} className="phone-link-inline">{phoneNumbers[0]}</a></p>
+                    </div>
+                    <div className="gallery-grid">
+                        <div className="gallery-item gallery-large">
+                            <img src={article1} alt={`ونش إنقاذ سيارة في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>سحب ونقل السيارات</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article3} alt={`شحن بطارية سيارة في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>شحن البطارية على الطريق</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article4} alt={`نقل سيارة SUV في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>نقل السيارات الدفع الرباعي</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article5} alt={`إنقاذ حادث طريق في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>إنقاذ حوادث الطرق</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article6} alt={`ونش هيدروليكي حديث في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>ونشات هيدروليكية حديثة</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article7} alt={`تغيير إطار سيارة في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>تغيير الإطارات في الموقع</span></div>
+                        </div>
+                        <div className="gallery-item gallery-wide">
+                            <img src={article8} alt={`نقل سيارة بين المحافظات من ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>نقل بين المحافظات</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article9} alt={`ونش سيارات فارهة في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>نقل السيارات الفارهة</span></div>
+                        </div>
+                        <div className="gallery-item">
+                            <img src={article10} alt={`خدمة ونش 24 ساعة في ${displayName}`} loading="lazy" />
+                            <div className="gallery-overlay"><span>خدمة الطوارئ 24/7</span></div>
                         </div>
                     </div>
                 </div>
@@ -378,6 +459,31 @@ const AreaDetails = () => {
             </section>
 
 
+            {/* Testimonials Strip */}
+            <section className="testimonials-strip">
+                <div className="testimonials-strip-inner">
+                    <div className="testimonial-strip-card">
+                        <div className="ts-stars">★★★★★</div>
+                        <p className="ts-text">"وصل الونش في أقل من 20 دقيقة وكان الفريق محترف جداً. أنصح الجميع!"</p>
+                        <span className="ts-author">— محمد أحمد، {displayName}</span>
+                    </div>
+                    <div className="testimonial-strip-card">
+                        <div className="ts-stars">★★★★★</div>
+                        <p className="ts-text">"خدمة ممتازة في منتصف الليل. السعر معقول والسيارة وصلت سليمة 100%."</p>
+                        <span className="ts-author">— هدى محمود، {displayName}</span>
+                    </div>
+                    <div className="testimonial-strip-card">
+                        <div className="ts-stars">★★★★★</div>
+                        <p className="ts-text">"أفضل خدمة ونش في المنطقة. حفظت رقم {phoneNumbers[0]} حتماً لأي طارئ."</p>
+                        <span className="ts-author">— كريم سامي، {displayName}</span>
+                    </div>
+                    <div className="testimonial-strip-card">
+                        <div className="ts-stars">★★★★★</div>
+                        <p className="ts-text">"نقلوا سيارتي الفارهة بعناية تامة. المعدات حديثة والتعامل راقي جداً."</p>
+                        <span className="ts-author">— سارة خالد، {displayName}</span>
+                    </div>
+                </div>
+            </section>
 
             {/* SEO Content */}
             <section className="seo-content">
@@ -556,12 +662,14 @@ const AreaDetails = () => {
                         </ul>
 
                         <h3>طرق التواصل معنا في {displayName}</h3>
+                        <ul className="seo-list">
+                            <li><strong>اتصال هاتفي مباشر:</strong> <a href={`tel:+2${phoneNumbers[0]}`} className="seo-phone-link">{phoneNumbers[0]}</a> — متاح 24/7</li>
+                            <li><strong>واتساب:</strong> راسلنا على {phoneNumbers[0]} للحصول على رد فوري</li>
+                            <li><strong>الموقع الإلكتروني:</strong> أرسل موقعك ونوع المشكلة عبر نموذج التواصل</li>
+                        </ul>
                         <p>
-                            يمكنك التواصل معنا في {displayName} بعدة طرق سهلة: الاتصال الهاتفي المباشر على
-                            أرقامنا المتاحة 24/7، إرسال رسالة واتساب (نستجيب فوراً)، أو من خلال موقعنا الإلكتروني.
-                            عند الاتصال، سيطلب منك موظف خدمة العملاء بعض المعلومات البسيطة: موقعك الحالي في
-                            {displayName} (يمكنك إرسال موقع GPS)، نوع المشكلة، نوع وموديل السيارة، والوجهة المطلوبة.
-                            بعد ذلك، سنعطيك عرض سعر فوري وزمن الوصول المتوقع، وسيتحرك الونش إليك مباشرة في {displayName}.
+                            عند الاتصال، سيطلب منك موظف خدمة العملاء موقعك في {displayName}،
+                            نوع المشكلة، وموديل السيارة. بعد ذلك نعطيك عرض سعر فوري وزمن وصول دقيق.
                         </p>
 
                         <h3>التزامنا بجودة الخدمة في {displayName}</h3>
@@ -601,9 +709,22 @@ const AreaDetails = () => {
                             لا تتردد في الاتصال بنا في أي وقت من اليوم أو الليل. خدمة الطوارئ الخاصة بنا
                             في {displayName} متاحة على مدار الساعة، وفريقنا جاهز دائماً للاستجابة لطلبك
                             بأسرع وقت ممكن. نحن على بعد مكالمة واحدة فقط، ومستعدون لمساعدتك في أي حالة طارئة
-                            في {displayName}. اتصل الآن على {phoneNumbers[0]} أو {phoneNumbers[1]} أو راسلنا عبر
-                            واتساب للحصول على مساعدة فورية!
+                            في {displayName}.
                         </p>
+                        <div className="seo-final-cta">
+                            <a href={`tel:+2${phoneNumbers[0]}`} className="seo-cta-phone">
+                                <Phone size={20} />
+                                <span>اتصل الآن: <strong>{phoneNumbers[0]}</strong></span>
+                            </a>
+                            <a
+                                href={`https://wa.me/+20${phoneNumbers[0]}?text=${encodeURIComponent('أحتاج خدمة ونش في ' + displayName)}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="seo-cta-whatsapp"
+                            >
+                                <MessageCircle size={20} />
+                                <span>واتساب: {phoneNumbers[0]}</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
