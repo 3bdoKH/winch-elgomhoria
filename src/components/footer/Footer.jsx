@@ -137,6 +137,9 @@ const Footer = () => {
                     <p className="copyright">
                         © {new Date().getFullYear()} خدمات ونش الجمهورية - جميع الحقوق محفوظة
                     </p>
+                    <p className="credits">
+                        Developed by <a href="https://adams-agency.online" target="_blank" rel="noopener noreferrer">Adam's Agency</a>
+                    </p>
                 </div>
             </div>
         </footer>

@@ -302,14 +302,42 @@
 .footer-bottom {
     background: #1A1A1A;
     padding: 20px;
-    text-align: center;
 }
+
+.footer-bottom .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    direction: ltr; /* Keep credits and copyright in a consistent LTR flex layout for desktop */
+}
+
 
 .copyright {
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
     font-size: 0.9rem;
+    direction: rtl;
 }
+
+.credits {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.credits a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.credits a:hover {
+    color: #FFFFFF;
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -347,6 +375,11 @@
 
     .social-links {
         justify-content: center;
+    }
+
+    .footer-bottom .footer-container {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
