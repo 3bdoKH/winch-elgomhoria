@@ -121,13 +121,22 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
 }
 
 .footer-column {
     direction: rtl;
     text-align: right;
+}
+
+.col-2 {
+    grid-column: span 2;
+}
+
+.col-2 .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
 }
 
 /* Company Info */
@@ -310,7 +319,8 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    direction: ltr; /* Keep credits and copyright in a consistent LTR flex layout for desktop */
+    direction: ltr;
+    /* Keep credits and copyright in a consistent LTR flex layout for desktop */
 }
 
 

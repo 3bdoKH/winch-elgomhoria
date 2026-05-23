@@ -5,6 +5,7 @@ import { MapPin } from 'lucide-react';
 import { Phone } from 'lucide-react';
 import { Clock } from 'lucide-react';
 import { phoneNumbers } from '../../data/phoneNumbers';
+import { areas } from '../../data/areas';
 const Footer = () => {
     const [email, setEmail] = useState('');
 
@@ -77,6 +78,22 @@ const Footer = () => {
                         </ul>
                     </div>
 
+                    {/* Service Areas */}
+                    <div className="footer-column col-2">
+                        <h3 className="footer-heading">مناطق التغطية</h3>
+                        <ul className="footer-links">
+                            {areas.map((gov, index) => (
+                                gov.areas.map((area, index) => (
+                                    <li key={index}>
+                                        <a href={`/areas/${encodeURIComponent(area)}`}>
+                                            ونش انقاذ {area}
+                                        </a>
+                                    </li>
+                                ))
+                            ))}
+                        </ul>
+                    </div>
+
                     {/* Get In Touch */}
                     <div className="footer-column">
                         <h3 className="footer-heading">تواصل معنا</h3>
@@ -106,25 +123,6 @@ const Footer = () => {
                                     <Clock />
                                 </span>
                                 <span>24 ساعة يومياً، 7 أيام في الأسبوع</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Latest Updates */}
-                    <div className="footer-column">
-                        <h3 className="footer-heading">آخر التحديثات</h3>
-                        <ul className="latest-updates">
-                            <li>
-                                <p>خدمة ونش سريعة متاحة الآن في جميع محافظات مصر</p>
-                                <span className="update-time">منذ ساعتين</span>
-                            </li>
-                            <li>
-                                <p>عروض خاصة على خدمات الإنقاذ للعملاء الجدد</p>
-                                <span className="update-time">منذ 5 ساعات</span>
-                            </li>
-                            <li>
-                                <p>تم إضافة أسطول جديد من الونشات الحديثة</p>
-                                <span className="update-time">منذ يوم واحد</span>
                             </li>
                         </ul>
                     </div>
